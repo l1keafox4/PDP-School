@@ -1,7 +1,5 @@
 # Dodge Blocks — Pygame Mini Game 
 
-Simple, professional-looking Pygame mini-project.
-
 ## Description
 "Dodge Blocks" — you control a square at the bottom and dodge falling blocks. Score increases over time. Game over when hit. Press **R** to restart, **ESC** to quit.
 
