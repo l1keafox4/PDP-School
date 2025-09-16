@@ -1,0 +1,40 @@
+.card {
+    width: 100%;
+    height: 1000px;
+}
+
+.box {
+    background-color: white;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black ;
+}
+
+.text {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 103px;
+}
+
+.text1 {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 103px;
+}
+
+.box1 {
+    position: absolute;
+    margin-top: -51.5px;
+    margin-left: 0px;
+    background-color: white;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black ;
+    transition: 0.4s;
+}
+
+.box1:hover {
+    transform: rotatez(45deg);
+    margin-top: 35px;
+    margin-left: -10px;
+}

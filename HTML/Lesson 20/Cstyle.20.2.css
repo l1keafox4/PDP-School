@@ -1,0 +1,107 @@
+.h {
+    width: 1600px;
+    height: 600px;
+    background-color: rgb(248, 119, 140);
+}
+
+.h2 {
+    border: 3px solid  rgb(248, 119, 140);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 520px;
+    top: 265px;
+    color: white;
+}
+
+.h3 {
+    border: 3px solid  rgb(248, 119, 140);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 620px;
+    top: 265px;
+    color: white;
+}
+
+.h4 {
+    border: 3px solid  rgb(248, 119, 140);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 730px;
+    top: 265px;
+    color:white;
+}
+
+.h5 {
+    border: 3px solid  rgb(248, 119, 140);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 865px;
+    top: 265px;
+    color:white;
+}
+
+.h6 {
+    border: 3px solid  rgb(248, 119, 140);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 1010px;
+    top: 265px;
+    color: white;
+}
+
+.h2:hover {
+    border-left: 3px solid darkblue;
+    border-right: 3px solid darkblue;
+    
+    background-color: rgb(248, 119, 140);
+    position: absolute;
+}
+.h3:hover {
+    border-left: 3px solid darkblue;
+    border-right: 3px solid darkblue;
+
+    
+    background-color: rgb(248, 119, 140);
+    position: absolute;
+}.h4:hover {
+    border-left: 3px solid darkblue;
+    border-right: 3px solid darkblue;
+    
+    background-color: rgb(248, 119, 140);
+    position: absolute;
+}.h5:hover {
+    border-left: 3px solid darkblue;
+    border-right: 3px solid darkblue;
+    
+    background-color: rgb(248, 119, 140);
+    position: absolute;
+}.h6:hover {
+    border-left: 3px solid darkblue;
+    border-right: 3px solid darkblue;
+    
+    background-color: rgb(248, 119, 140);
+    position: absolute;
+}
+
+.CSS {
+    font-size: 40px;
+    position: absolute;
+    top: 100px;
+    left: 570px;
+    color: white;
+}
+
+.HOVER {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    position: absolute;
+    top: 400px;
+    left: 550px;
+    color: white;
+}
+

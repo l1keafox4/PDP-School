@@ -1,0 +1,102 @@
+.card {
+    width: 800px ;
+    height: 180px ;
+    border: 2px dashed black
+}
+
+.card1 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 180px;
+    background-color: red;
+    display: flex;
+    border: 1px solid white;
+}
+
+.card2 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 180px;
+    background-color: green;
+    position: relative;
+    margin-top: -180px;
+    margin-left: 200px;
+    top: 25px;
+    left: 35px;
+
+}
+
+.card3 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 175px;
+    background-color: red;
+    margin: -182px 400px ;
+    border: 1px solid white;
+}
+
+.card4 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 175px;
+    background-color: red;
+    margin: 6px 600px ;
+    border: 1px solid white;
+}
+
+
+.card5 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 175px;
+    background-color: red;
+    margin: 2px 398px ;
+    border: 1px solid white;
+    display: flex;
+}
+
+.card6 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 180px;
+    background-color: red;
+    border: 1px solid white;
+    margin-top: -180px;
+}
+
+.card7 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 180px;
+    background-color: green;
+    position: absolute;
+    margin-top: 260px;
+    margin-left: 1px;
+    top: 25px;
+    left: 35px;
+
+}
+
+.card8 {
+    font-size: 20px;
+    text-align: center;
+    width: 198px;
+    height: 175px;
+    background-color: red;
+    margin: -182px 200px ;
+    border: 1px solid white;
+}
+
+.card9{
+    margin-top: 50px;
+    width: 600px ;
+    height: 180px ;
+    border: 2px dashed black
+}

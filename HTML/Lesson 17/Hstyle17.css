@@ -1,0 +1,47 @@
+.card {
+    width: 800px ;
+    height: 600px ;
+    border: 2px solid red
+}
+
+.card1 {
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: blue;
+    margin:15px 30px ;
+}
+
+.card2 {
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: lightblue;
+    margin:-55px 30px ;
+    position: relative;
+}
+
+.card3 {
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: rgb(88, 17, 17);
+    margin: 20px 30px ;
+}
+
+.card4 {
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    margin: 20px 30px ;
+
+}

@@ -1,0 +1,13 @@
+/.idea
+/.pytest_cache
+/.venv
+/.vscode
+/data.yaml
+/HTML CSS
+/JavaScript
+/Newpy
+/Tgbot.db
+/tutorial.db
+/users.xlsx
+/users.yaml
+/venv

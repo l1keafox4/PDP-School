@@ -1,0 +1,59 @@
+.giga {
+    width: 590px;
+    height: 40px;
+    background:silver;
+}
+.giga1 {
+    width: 100%;
+    height: 40px;
+    background:gray;
+}
+.giga2 {
+    width: 100%;
+    height: 40px;
+    background:whitesmoke;
+}
+.giga3 {
+    width: 100%;
+    height: 40px;
+    background:lightblue;
+}
+.giga4 {
+    width: 100%;
+    height: 40px;
+    background:plum;
+}
+.giga5 {
+    width: 100%;
+    background:lawngreen;
+    height: 40px;
+}
+.giga6 {
+    width: 100%;
+    background:pink;
+    height: 40px;
+}
+.giga7 {
+    background:wheat;
+    width: 100%;
+    height: 40px;
+}
+.giga8 {
+    background:lightcyan;
+    width: 100%;
+    height: 40px;
+}
+.giga9 {
+    background: white;
+    width: 100%;
+    height: 40px;
+}
+.giga10 {
+
+     background:darkgray;
+     width: 100%;
+    height: 40px;
+}
+.mega1 {
+    text-align: right;
+}

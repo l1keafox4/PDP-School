@@ -1,0 +1,55 @@
+.card {
+    width: 800px ;
+    height: 600px ;
+    border: 2px dashed black
+}
+
+.card1 {
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    height: 70px;
+    background-color: red;
+    
+}
+
+.card2 {
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    height: 70px;
+    background-color: yellow;
+    position: relative;
+    margin-top: 460px;
+}
+
+.card3 {
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    height: 70px;
+    background-color: rgb(88, 17, 17);
+    margin: -330px 300px ;
+    position: absolute;
+}
+
+.card4 {
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    height: 70px;
+    background-color: blueviolet;
+    margin: -600px 600px ;
+
+}
+
+
+.card5 {
+    font-size: 20px;
+    text-align: center;
+    width: 200px;
+    height: 70px;
+    background-color: green;
+    margin: 1060px 600px ;
+
+}

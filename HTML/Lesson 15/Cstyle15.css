@@ -1,0 +1,128 @@
+.card {
+    width: 250px;
+    height: 250px; 
+    background-color: #f2d29f;
+    border: 1px solid black;
+
+}
+
+.card:nth-child(2) {
+
+background-color: #4e2b0c;
+    
+}
+.card:nth-child(4) {
+
+    background-color: #4e2b0c;
+        
+    }
+    .card:nth-child(6) {
+
+        background-color: #4e2b0c;
+
+                    
+    }.card:nth-child(8) {
+
+                    background-color: #4e2b0c;
+                        
+
+                            
+            }.card:nth-child(9) {
+
+                            background-color: #4e2b0c;}
+
+.card:nth-child(11)
+{
+    background-color: #4e2b0c;
+}
+.card:nth-child(13)
+{
+    background-color: #4e2b0c;
+}
+.card:nth-child(15)
+{
+    background-color: #4e2b0c;
+}
+.card:nth-child(18)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(20)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(22)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(24)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(25)
+{
+    background-color: #4e2b0c;
+}
+.card:nth-child(27)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(29)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(31)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(34)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(36)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(38)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(40)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(41)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(43)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(45)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(47)
+{
+    background-color: #4e2b0c;
+}
+.card:nth-child(50)
+{
+    background-color: #4e2b0c;
+}
+.card:nth-child(52)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(54)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(56)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(57)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(59)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(61)
+{
+    background-color: #4e2b0c;
+}.card:nth-child(63)
+{
+    background-color: #4e2b0c;
+}
+.parent-div {
+    width: 2065px;
+    height: 2060px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 100px solid#e9bc85;
+}

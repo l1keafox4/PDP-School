@@ -1,0 +1,28 @@
+.nft1
+{
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    border: 8px solid silver;
+    margin-top: 5px;
+    margin-left: 55px;
+    padding-top: 50px;
+    padding-left: 100px;
+    box-sizing: border-box;
+}
+
+.nft2 {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border: 8px solid silver;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+.nft3 { text-align: center;
+    width: 350px;
+    height: 200px;
+    background-color: gray;
+    border: 8px solid silver;
+}

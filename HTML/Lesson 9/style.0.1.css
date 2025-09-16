@@ -1,0 +1,119 @@
+.top1 {
+    border-radius: 15px;
+    background: red;
+    border: 3px solid black;
+    width: 200px;
+    height: 50px;
+}
+
+.top2 {
+    border-radius: 45px 40px 75px 5px;
+    background: red;
+    border: 3px solid black;
+    width: 180px;
+    height: 50px;
+}
+.top3 {
+    border-radius: 50px 1px 50px 1px;
+    background: red;
+    border: 3px solid black;
+    width: 200px;
+    height: 50px;
+}
+.top4 {
+    border-radius: 5px 60px 60px 50px;
+    background: red;
+    border: 3px solid black;
+    width: 200px;
+    height: 50px;
+}
+.top5 {
+    border-radius: 5px 30px 5px 5px;
+    background: red;
+    border: 3px solid black;
+    width: 200px;
+    height: 50px;
+}
+.top6 {
+    border-radius: 100px 5px 5px 5px;
+    background: red;
+    border: 3px solid black;
+    width: 200px;
+    height: 50px;
+}
+.top7 
+    {
+        background: red;
+        border: 3px solid black;
+        border-radius: 90px;
+        
+        height: 150px;
+        width: 150px;
+      }
+
+.top8 
+    {
+        background: red;
+        border-radius: 30px;
+        
+        height: 100px;
+        width: 100px;
+      }
+
+.top9 
+    {
+        background: red;
+        border-radius: 35px;
+        
+        height: 100px;
+        width: 100px;
+      }
+
+.top10 
+    {
+        background: red;
+        border-radius: 45px;
+        
+        height: 100px;
+        width: 100px;
+      }
+.top11 
+    {
+        background: red;
+        border-radius: 45px;
+        
+        height: 100px;
+        width: 100px;
+      }
+
+.top12 {
+        border-radius: 20px;
+        background: white;
+        border: 15px solid black;
+        width: 100px;
+        height: 100px;
+    }
+.top13 {
+        border-radius: 25px;
+        background: white;
+        border: 15px solid red;
+        width: 100px;
+        height: 100px;
+    }
+    
+.top14 {
+        border-radius: 18px 0px 0px 0px;
+        background: white;
+        border: 15px solid green;
+        width: 100px;
+        height: 100px;
+    }
+
+.top15 {
+        border-radius: 18px 0px 25px 0px;
+        background: white;
+        border: 15px solid blue;
+        width: 100px;
+        height: 100px;
+    }
+    

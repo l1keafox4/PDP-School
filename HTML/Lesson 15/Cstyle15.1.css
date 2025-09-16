@@ -1,0 +1,146 @@
+.card {
+    width: 250px;
+    height: 250px; 
+    background-color: white;
+    border: 1px solid black;
+
+}
+
+.card:nth-child(2) {
+
+background-color: rgb(56, 22, 0);;
+    
+}
+.card:nth-child(4) {
+
+    background-color: rgb(56, 22, 0);;
+        
+    }
+    .card:nth-child(6) {
+
+        background-color: rgb(56, 22, 0);;
+
+                    
+    }.card:nth-child(8) {
+
+                    background-color: rgb(56, 22, 0);;
+                        
+
+                            
+            }.card:nth-child(9) {
+
+                            background-color: rgb(56, 22, 0);;}
+
+.card:nth-child(11)
+{
+    background-color: rgb(56, 22, 0);;
+}
+.card:nth-child(13)
+{
+    background-color: rgb(56, 22, 0);;
+}
+.card:nth-child(15)
+{
+    background-color: rgb(56, 22, 0);;
+}
+.card:nth-child(18)
+{
+    background-color: rgb(56, 22, 0);;
+}.card:nth-child(20)
+{
+    background-color: rgb(56, 22, 0);;
+}.card:nth-child(22)
+{
+    background-color: rgb(56, 22, 0);;
+}.card:nth-child(24)
+{
+    background-color: rgb(56, 22, 0);
+}.card:nth-child(25)
+{
+    background-color: rgb(56, 22, 0);
+}
+.card:nth-child(27)
+{
+    background-color: rgb(56, 22, 0);;
+}.card:nth-child(29)
+{
+    background-color: rgb(56, 22, 0);;
+}.card:nth-child(31)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(34)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(36)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(38)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(40)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(41)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(43)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(45)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(47)
+{
+    background-color:rgb(56, 22, 0);;
+}
+.card:nth-child(50)
+{
+    background-color:rgb(56, 22, 0);;
+}
+.card:nth-child(52)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(54)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(56)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(57)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(59)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(61)
+{
+    background-color:rgb(56, 22, 0);;
+}.card:nth-child(63)
+{
+    background-color:rgb(56, 22, 0);;
+}
+.parent-div {
+    width: 2065px;
+    height: 2060px;
+    display: flex;
+    flex-wrap: wrap;
+    border:1px solid  ;
+}
+
+.text1 {
+    margin-left: 100px;
+display: flex;
+font-size: 200px;
+letter-spacing: 140px;
+}
+.number {
+    font-size: 200px;
+}
+.numbers2 
+{
+    display: flex;
+}
+
+.m1 {
+    margin-bottom: 30px;
+}

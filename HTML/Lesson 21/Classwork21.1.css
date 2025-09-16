@@ -1,0 +1,15 @@
+.card {
+    width: 300px;
+    height: 300px;
+    margin: 30px 10%;
+    transition: 0,5s;
+    background-color: red;
+}
+
+.card:hover {
+    /* transform: rotate(100deg); */
+    /* transform: rotatey(200deg); */
+    /* transform: rotatex(100deg); */
+    /* transform: rotatez(100deg); */
+    transform: rotate3d(100, 120, 350, 200deg);
+}

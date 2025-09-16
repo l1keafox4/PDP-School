@@ -1,0 +1,40 @@
+.card {
+    width: 100%;
+    height: 1000px;
+}
+
+.box {
+    background-color: lightgreen;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black ;
+}
+
+
+.text1 {
+    color: green;
+    font-weight: 900;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-left: 23px;
+}
+
+.text3 {
+    font-size: 10px;
+    margin-left: 24px;
+}
+
+.box1 {
+    margin-top: -51.5px;
+    margin-left: 0px;
+    background-color: white;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black ;
+    transition: 0.4s;
+}
+
+.box1:hover {
+    margin-top: -30px;
+    transform: rotatez(10deg);
+}

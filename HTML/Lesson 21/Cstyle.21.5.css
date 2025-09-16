@@ -1,0 +1,17 @@
+.card {
+    margin-top: 50px;
+    margin-left: 400px;
+    width: 150px;
+    height: 150px;
+    background-color: orange;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: rotatez(30deg);
+    background-color: red;
+}
+
+.h1 {
+   margin-left: 400px;
+}

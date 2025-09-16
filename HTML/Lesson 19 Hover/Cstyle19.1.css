@@ -1,0 +1,91 @@
+.card {
+    width: 2000px;
+    height: 1000px;
+    background-color: rgb(219, 219, 219);
+}
+
+.card1 {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 50px;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+    border-radius: 0px 10px 0px 0px ;
+    box-shadow: 5px 20px 50px 10px rgb(175, 162, 162);
+}
+
+.card1:hover {
+    border: 1px solid orange;
+    
+    background-color: orange;
+    position: absolute;
+}
+
+.p {
+    position: absolute;
+    top: 200px;
+    left: 65px;
+}
+
+
+.card2 {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 330px;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+    border-radius: 0px 10px 0px 0px ;
+    box-shadow: 5px 20px 50px 10px rgb(175, 162, 162);
+}
+
+.card2:hover {
+    border: 1px solid orange;
+    
+    background-color: orange;
+    position: absolute;
+}
+
+.p {
+    color: black;
+    position: absolute;
+    top: 200px;
+    left: 65px;
+}
+
+.card3 {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 630px;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+    border-radius: 0px 10px 0px 0px ;
+    box-shadow: 5px 20px 50px 10px rgb(175, 162, 162);
+}
+
+.card3:hover {
+    border: 1px solid orange;
+    
+    background-color: orange;
+    position: absolute;
+}
+
+.card4 {
+    background-color: white;
+    position: absolute;
+    top: 110px;
+    left: 930px;
+    width: 200px;
+    height: 300px;
+    border-radius: 0px 10px 0px 0px ;
+    box-shadow: 5px 20px 50px 10px rgb(175, 162, 162);
+}
+
+.card4:hover {
+    border: 1px solid orange;
+    
+    background-color: orange;
+    position: absolute;
+}

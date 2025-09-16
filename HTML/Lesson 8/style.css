@@ -1,0 +1,34 @@
+/* style da chaqirishning uslubi */
+
+/* birinchisi teg bilan  */
+/* 
+h1 {
+    color: red;
+}
+
+h2 {
+    color: aqua;
+} 
+*/
+
+
+/* ikkinchisi class bilan */
+
+.nurmuhammad {
+    color: red;
+}
+
+.turdibekov {
+    color: aqua;
+}
+
+/* uchunchisi id bilan */
+
+#alisher {
+    color: chartreuse;
+}
+
+#alisher {
+    color: red;
+}
+

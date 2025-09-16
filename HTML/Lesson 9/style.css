@@ -1,0 +1,14 @@
+.p-text {
+    color:red;
+    background-color:black;
+}
+
+.card {
+    width:200px;
+    height: 200px;
+
+    border-top: 10px double red;
+    border-bottom: 10px dashed yellow;
+    border-left: 10px double green;
+    border-right: 10px dashed black
+}

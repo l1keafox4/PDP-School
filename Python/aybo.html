@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mezely Cafe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .product h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .product p {
+            font-size: 16px;
+            color: #555;
+        }
+        .product button {
+            background-color: #ff9800;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .product button:hover {
+            background-color: #dc3545;
+        }
+        .cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .cart button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-icon {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mezely Cafe</h2>
+    <div class="container" id="product-list"></div>
+
+    <div class="cart">
+        <button onclick="goToCart()">
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081986.png" alt="Cart" class="cart-icon">
+        </button>
+    </div>
+
+    <script>
+        function goToCart() {
+            window.location.href = "cart.html";
+        }
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        async function loadProducts() {
+    try {
+        const response = await fetch("http://127.0.0.1:5000/products");
+        const data = await response.json();
+        const products = data.products;
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = "";
+
+        products.forEach(product => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+            productDiv.innerHTML = `
+                <img src="https://api.telegram.org/file/bot<TOKEN>/${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.price} so'm</p>
+                <button onclick="addToCart(${product.id}, '${product.name}', ${product.price})">
+                    🛒 Savatchaga qo'shish
+                </button>
+            `;
+            productList.appendChild(productDiv);
+        });
+    } catch (error) {
+        console.error("Mahsulotlarni yuklashda xatolik:", error);
+    }
+}
+
+
+function addToCart(id, name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let item = cart.find(p => p.id === id);
+
+    if (item) {
+        item.quantity += 1;
+    } else {
+        cart.push({ id, name, price, quantity: 1 });
+    }
+    
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${name} savatchaga qo'shildi!`);
+    }
+        loadProducts();
+    </script>
+</body>
+</html>

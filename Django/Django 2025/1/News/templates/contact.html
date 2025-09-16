@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            margin-left: 100px;
+        }
+
+        ul {
+            list-style-type: none;
+            max-width: 2000px;
+            width: 1300px;
+            margin-left: 400px;
+            border-radius: 7px;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: -webkit-sticky; /* Safari */
+            position: absolute;
+            top: 0;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+
+        }
+
+        li a:hover {
+            height: 20px;
+            margin-top: -5px;
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #2649e8;
+        }
+
+        .container {
+            border-radius: 5px;
+            width: 50%;
+            margin: 50px auto;
+            background-color: #f2f2f2;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>PDP News</h2>
+</div>
+
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/news">News</a></li>
+    <li><a class="active" href="/contact">Contact</a></li>
+</ul>
+
+<h3 style="text-align: center">Contact Form</h3>
+
+<div class="container">
+    <form action="/contact/" method="POST">
+        {% csrf_token %}
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            <option value="uzbekistan">Uzbekistan</option>
+            <option value="russian">Russia</option>
+            <option value="England">England</option>
+            <option value="Germany">Germany</option>
+            <option value="Japan">Japan</option>
+            <option value="China">China</option>
+            <option value="India">India</option>
+            <option value="France">France</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
+
+

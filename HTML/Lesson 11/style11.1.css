@@ -1,0 +1,23 @@
+.id0 {
+    height: 200px;
+    width: 800px;
+    background: silver;
+    border-radius: 15px;
+    padding-top:20px;
+    padding-left: 30px;
+}
+
+.id3 {
+    border-radius: 5px;
+}
+
+.id2 {
+   background: green;
+    color: white;
+    border-radius: 10px;
+    border: white;
+}
+
+.id4 {
+    border-radius: 5px;
+}

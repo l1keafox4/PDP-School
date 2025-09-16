@@ -1,0 +1,103 @@
+.h {
+    width: 1600px;
+    height: 600px;
+    background-color: black;
+}
+
+.h1 {
+    font-size: 20px;
+    position: absolute;
+    margin-top: 180px;
+    height: 150px;
+    width: 1600px;
+    background-color: rgb(54, 54, 54);
+}
+
+.h2 {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 520px;
+    top: 65px;
+    color: rgb(136, 134, 134);
+}
+
+.h3 {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 620px;
+    top: 65px;
+    color: rgb(136, 134, 134);
+}
+
+.h4 {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 730px;
+    top: 65px;
+    color: rgb(136, 134, 134);
+}
+
+.h5 {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 870px;
+    top: 65px;
+    color: rgb(136, 134, 134);
+}
+
+.h6 {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 1000px;
+    top: 65px;
+    color: rgb(136, 134, 134);
+}
+
+.h2:hover {
+    border-bottom: 1px solid orange;
+    
+    background-color: rgb(54, 54, 54);
+    position: absolute;
+}
+.h3:hover {
+    border-bottom: 1px solid orange;
+    
+    background-color: rgb(54, 54, 54);
+    position: absolute;
+}.h4:hover {
+    border-bottom: 1px solid orange;
+    
+    background-color: rgb(54, 54, 54);
+    position: absolute;
+}.h5:hover {
+    border-bottom: 1px solid orange;
+    
+    background-color: rgb(54, 54, 54);
+    position: absolute;
+}.h6:hover {
+    border-bottom:1px solid orange;
+    
+    background-color: rgb(54, 54, 54);
+    position: absolute;
+}
+
+.CSS {
+    font-size: 40px;
+    position: absolute;
+    top: 100px;
+    left: 570px;
+    color: white;
+}
+
+.HOVER {
+    font-size: 40px;
+    position: absolute;
+    top: 400px;
+    left: 550px;
+    color: white;
+}

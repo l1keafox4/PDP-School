@@ -1,0 +1,21 @@
+.box {
+    background-color: white;
+}
+
+.photo {
+    position: absolute;
+    top: 300px;
+    left: 15px;
+}
+
+.photo0 {
+
+    margin-top: -650px
+}
+
+.text {
+    margin-left: 4px;   
+    font-size: 12px;
+    color: white;
+    font-family: system-ui;
+}

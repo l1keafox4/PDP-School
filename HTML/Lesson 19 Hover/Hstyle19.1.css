@@ -1,0 +1,237 @@
+.class {
+    display: block;
+}
+
+.alias {
+    
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: alias;
+}
+
+.all-scroll {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: all-scroll;}
+
+.auto {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: auto;}
+
+.cell {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: cell;}
+
+.col-resize {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: col-resize;}
+
+.context-menu {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: context-menu;}
+
+.copy {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: copy;}
+
+.crosshair {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: crosshair;}
+
+.default {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: default;}
+
+.e-resize {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: e-resize;}
+
+.ew-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: ew-resize;}
+
+.grab {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: -webkit-grab;
+ cursor: grab;}
+.grabbing {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: -webkit-grabbing; cursor: grabbing;}
+
+.help {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: help;}
+
+.move {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: move;}
+
+.n-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: n-resize;}
+
+.ne-resize {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: ne-resize;}
+
+.nesw-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: nesw-resize;}
+
+.ns-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: ns-resize;}
+
+.nw-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: nw-resize;}
+
+.nwse-resize {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: nwse-resize;}
+
+.no-drop {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: no-drop;}
+
+.none {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: none;}
+
+.not-allowed {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: not-allowed;}
+
+.pointer {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: pointer;}
+
+.progress {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: progress;}
+
+.row-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: row-resize;}
+
+.s-resize {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: s-resize;}
+
+.se-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: se-resize;}
+
+.sw-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: sw-resize;}
+
+.text {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: text;}
+
+.w-resize {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: w-resize;}
+
+.wait {    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: wait;}
+
+.zoom-in {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: zoom-in;}
+
+.zoom-out {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    background-color: orange;
+    cursor: zoom-out;}

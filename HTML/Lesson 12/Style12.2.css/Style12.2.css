@@ -1,0 +1,19 @@
+.font {
+    font-size: 50px;
+    font-weight: 900;
+    /* text-align: left; text-align: center;*/
+    text-align: left;
+    text-transform: uppercase;
+    text-transform: lowercase;
+    text-transform: capitalize;
+    /* letter-spacing: 4000px;*/
+    line-height: 20px;
+}
+    /*
+    a {
+    text-decoration: none;
+    16
+    17
+    Col 18
+    color: black;
+    }*/

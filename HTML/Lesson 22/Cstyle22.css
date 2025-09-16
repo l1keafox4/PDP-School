@@ -1,0 +1,114 @@
+.card {
+    margin-left: 600px;
+    width: 100px;
+    height: 280px;
+    background-color: gray;
+    padding-top: 5px;
+}
+
+.krug {
+    margin-left: 5px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: red;
+    animation-name: ANIMETOP;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+
+.krug1 {
+    border: 1px solid white;
+    margin-left: 5px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: black;
+    animation-name: ANIME1;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+.krug2 {
+    border: 1px solid white;
+    margin-left: 5px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: black;
+    animation-name: ANIME2;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ANIMETOP {
+    0%{
+        background-color: red;
+    }
+    50% {
+        background-color: red;
+    }
+    70% {
+        background-color: black;
+    }
+    100% {
+        background-color: black;
+    }
+}
+
+@keyframes ANIME1 {
+    40%{
+        background-color: black;
+    }
+    50% {
+        background-color: yellow;
+    }
+    70% {
+        background-color: black;
+    }
+    88%{
+        background-color: black;
+    }
+    98% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: yellow;
+    }
+}
+
+@keyframes ANIME2 {
+    40%{
+        background-color: black;
+    }
+    50% {
+        background-color: black;
+    }
+    55%{
+        background-color: green;
+    }
+    60% {
+        background-color: green;
+    }
+    65% {
+        background-color: black;
+    }
+    70% {
+        background-color: green;
+    }
+    75% {
+        background-color: black;
+    }
+    80% {
+        background-color: green;
+    }
+    85% {
+        background-color: black;
+    }
+    100% {
+        background-color: black;
+    }
+}

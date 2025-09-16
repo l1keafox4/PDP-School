@@ -1,0 +1,39 @@
+.nfs0
+{
+    width: 850px;
+    height: 490px;
+    background-color:lightblue;
+    border: 2px solid rgb(90, 84, 84);
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.nfs1
+{
+    width: 700px;
+    height: 420px;
+    background-color: blueviolet;
+    border: 2px solid rgb(90, 84, 84);
+    margin-top: 5px;
+    margin-left: 5px;
+    padding-top: 5px;
+    padding-left: 40px;
+}
+
+.nfs2 {
+    width: 400px;
+    height: 350px;
+    background-color: pink;
+    border: 2px solid rgb(90, 84, 84);
+    padding-top: 20px;
+    padding-left: 50px;
+    
+}
+
+.nfs3 { text-align: center ;
+    width: 350px;
+    height: 270px;
+    background-color: seagreen;
+    border: 2px solid rgb(90, 84, 84);
+}
