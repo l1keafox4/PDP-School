@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Твоё Имя — Портфолио</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Современный лендинг-портфолио. Имя — веб-разработчик / дизайнер / и т.д." />
+
+  <!-- Simple reset + fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- GSAP for polished animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <style>
+
+  </style>
+
+</head>
+<body>
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#hero">🟣 ТвоёИмя</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#works">Projects</a>
+        <a href="#future">In Future</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#works">Projects</a>
+        <a href="#future">In Future</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <h1 class="hero-title">Hi there <span class="accent">I'm Jasurbek</span></h1>
+        <p class="hero-lead">It is my own lending web page, and there you can find my projects, skills and contacts.</p>
+        <div class="hero-cta">
+          <a href="#works" class="btn-primary">See projects</a>
+          <a href="#contact" class="btn-ghost">Contact me</a>
+        </div>
+        <div class="meta">
+          <div><strong>Experience:</strong> 3+ years</div>
+          <div><strong>Focus:</strong> Web, frontend, backend</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- stylish profile card placeholder — заменишь фото -->
+        <div class="profile-card">
+          <div class="profile-visual" aria-hidden="true">
+            <!-- SVG pattern + overlay -->
+            <svg viewBox="0 0 200 200" class="blob">
+              <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs>
+              <path fill="url(#g)" d="M42.3,-65.2C56.3,-56.9,68.6,-44.1,73.5,-29.2C78.4,-14.3,75.9,2.8,69.9,18.2C63.9,33.6,54.5,47.3,41.4,58.1C28.2,69,11.4,78,-6.9,81.3C-25.3,84.7,-50.6,82.5,-61.5,70.1C-72.5,57.7,-69.1,35.1,-69.8,13.1C-70.6,-8.9,-75.5,-29.4,-69.6,-42.9C-63.7,-56.5,-47,-63.1,-31.1,-71.2C-15.2,-79.3,-7.6,-88.9,6.1,-94.8C19.7,-100.6,39.4,-102.9,42.3,-65.2Z" transform="translate(100 100)"/>
+            </svg>
+            <div class="photo-placeholder">Тут будет твоя фотка</div>
+          </div>
+          <div class="profile-info">
+            <h3>Jasurbek</h3>
+            <div class="profile-links">
+              <a href="#" aria-label="GitHub">GitHub</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-decor" aria-hidden="true"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="split">
+        <div class="left">
+          <h2>About Me</h2>
+          <p>Brief overview of experience and specialization. I position myself as a web developer, engineer, and designer. I focus on creating efficient and user-friendly solutions.</p>
+          <ul class="bullets">
+            <li>Creating fast SPAs and convenient interfaces</li>
+            <li>Working with Django + REST API</li>
+            <li>Experience in performance optimization</li>
+          </ul>
+        </div>
+        <div class="right">
+          <div class="skill-cards">
+            <div class="card">Design systems</div>
+            <div class="card">Performance</div>
+            <div class="card">Accessibility</div>
+            <div class="card">Testing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section alt">
+    <div class="container">
+      <center><h2>Skills</h2></center>
+      <div class="skills-grid">
+        <div class="skill">
+          <h4>Frontend</h4>
+          <p>HTML, CSS, JS</p>
+        </div>
+        <div class="skill">
+          <h4>Backend</h4>
+          <p>Python, Django, FastAPI</p>
+        </div>
+        <div class="skill">
+          <h4>Tools</h4>
+          <p>Git, Docker, VScode, PyCharm</p>
+        </div>
+        <div class="skill">
+          <h4>Design</h4>
+          <p>Figma, AE, PS, AI</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section id="works" class="section">
+    <div class="container">
+      <center><h2>Projects</h2></center>
+      <div class="works-grid">
+        <!-- project card template — replace with your own -->
+        <article class="work-card">
+          <div class="preview" style="background: linear-gradient(135deg,#7c3aed,#06b6d4)"></div>
+          <div class="meta">
+            <h3>Project Name</h3>
+            <p class="muted">Short description — stack, role.</p>
+            <div class="tags"><span>Python</span><span>Django</span></div>
+            <div class="links"><a href="#">Repo</a><a href="#">Demo</a></div>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="preview" style="background: linear-gradient(135deg,#06b6d4,#7c3aed)"></div>
+          <div class="meta">
+            <h3>Another Project</h3>
+            <p class="muted">Short description.</p>
+            <div class="tags"><span>JS</span><span>Game</span></div>
+            <div class="links"><a href="#">Repo</a><a href="#">Demo</a></div>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="preview" style="background: linear-gradient(135deg,#06b6d4,#7c3aed)"></div>
+          <div class="meta">
+            <h3>Another Project</h3>
+            <p class="muted">Short description.</p>
+            <div class="tags"><span>JS</span><span>Game</span></div>
+            <div class="links"><a href="#">Repo</a><a href="#">Demo</a></div>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="preview"><img src="assets/images/BeastMine.png" alt=""></div>
+          <div class="meta">
+            <h3>BeastMine</h3>
+            <p class="muted">Minecraft Server Web Page</p>
+            <div class="tags"><span>Website</span><span>Game</span></div>
+            <div class="links"><a href="https://beastmine.fun/">Link</a></div>
+          </div>
+        </article>
+
+        <!-- add as many cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- IN FUTURE -->
+  <section id="future" class="section">
+    <div class="container">
+      <h2>In Future</h2>
+      <p class="section-desc">Technologies and skills I'm planning to learn and master</p>
+      <div class="future-grid">
+        <div class="future-item">
+          <div class="future-icon">🚀</div>
+          <h4>PHP</h4>
+          <p>Language on which most websites work</p>
+        </div>
+        <div class="future-item">
+          <div class="future-icon">⚡</div>
+          <h4>Node.js</h4>
+          <p>JavaScript runtime for server-side development</p>
+        </div>
+        <div class="future-item">
+          <div class="future-icon">💻</div>
+          <h4>С++</h4>
+          <p>High-performance applications such as games, OS, browsers, as well as for system programming, scientific computing and even AI</p>
+        </div>
+        <div class="future-item">
+          <div class="future-icon">🐋</div>
+          <h4>Java</h4>
+          <p>From mobile applications for Android and server systems to web applications, desktop programs</p>
+        </div>
+        <div class="future-item">
+          <div class="future-icon">🎯</div>
+          <h4>TypeScript</h4>
+          <p>Strongly typed programming language that builds on JavaScript</p>
+        </div>
+        <div class="future-item">
+          <div class="future-icon">📱</div>
+          <h4>С#</h4>
+          <p>Universal for web development, games and cloud services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <div class="container contact-wrap">
+      <div class="contact-left">
+        <h2>Contact</h2>
+        <p>Have an idea? Write to me — let's discuss.</p>
+
+        <form id="contactForm" action="contact.php" method="POST" novalidate>
+          <input type="hidden" name="form_token" id="form_token" value="">
+          <label>
+            <span>Name</span>
+            <input name="name" required>
+          </label>
+          <label>
+            <span>E-mail</span>
+            <input name="email" type="email" required>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" href="#" class="btn-primary">Send</button>
+            <button type="reset" href="#" class="btn-ghost-2">Clear</button>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="contact-right">
+        <div class="contact-card">
+          <h3>Contacts</h3>
+          <p><strong>Email:</strong> jasurbek@email.com</p>
+          <p><strong>Location:</strong> City, Country</p>
+          <p><strong>Phone:</strong> +998 ...</p>
+          <div class="social">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-inner">
+        <div>© <span id="year"></span> Jasurbek</div>
+        <div class="small-muted">Made with ❤️ — Open to work</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
