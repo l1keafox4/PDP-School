@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Твоё Имя — Портфолио</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <meta name="description" content="Современный лендинг-портфолио. Имя — веб-разработчик / дизайнер / и т.д." />
+  <title>Jasurbek's — Portfolio</title>
+  <link rel="icon" href="assets/logo.png" type="image/svg+xml" style="border-radius: 50px;">
+  <meta name="description" content="My own portfolio website, where you can find my projects, skills, and contacts." />
 
   <!-- Simple reset + fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,20 +16,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
-  <style>
-
-  </style>
 
 </head>
 <body>
   <!-- NAV -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#hero">🟣 ТвоёИмя</a>
+      <a class="logo" href="#hero">🟣 Jasurbek</a>
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#works">Projects</a>
+        <a href="#achievements">Achievements</a>
         <a href="#future">In Future</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -38,13 +36,13 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#works">Projects</a>
+        <a href="#achievements">Achievements</a>
         <a href="#future">In Future</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
   <section id="hero" class="hero">
     <div class="container hero-grid">
       <div class="hero-left">
@@ -143,10 +141,10 @@
         <article class="work-card">
           <div class="preview" style="background: linear-gradient(135deg,#7c3aed,#06b6d4)"></div>
           <div class="meta">
-            <h3>Project Name</h3>
-            <p class="muted">Short description — stack, role.</p>
-            <div class="tags"><span>Python</span><span>Django</span></div>
-            <div class="links"><a href="#">Repo</a><a href="#">Demo</a></div>
+            <h3>Lending Web Site Portfolio</h3>
+            <p class="muted">This is my personal portfolio website</p>
+            <div class="tags"><span>HTML/CSS/JS</span><span>PHP</span></div>
+            <div class="links"><a href="https://github.com/l1keafox4" target="_blank">GitHub</a><a href="https://l1keafox4" target="_blank">Link</a></div>
           </div>
         </article>
 
@@ -163,10 +161,14 @@
         <article class="work-card">
           <div class="preview" style="background: linear-gradient(135deg,#06b6d4,#7c3aed)"></div>
           <div class="meta">
-            <h3>Another Project</h3>
-            <p class="muted">Short description.</p>
-            <div class="tags"><span>JS</span><span>Game</span></div>
-            <div class="links"><a href="#">Repo</a><a href="#">Demo</a></div>
+            <h3>BeastMine.fun</h3>
+            <p class="muted">This Minecraft server is in the Top 3 in Uzbekistan.  Recommended version to play: 1.16.x-1.20.x</p>
+            <div class="tags"><span>Server</span><span>Game</span></div>
+            <div class="links">
+              <a href="#" class="copy-link" onclick="copyToClipboard('mc.beastmine.fun', this); return false;" title="Click to copy server address">
+                IP: mc.beastmine.fun
+              </a><a href="https://t.me/BeastMineChannel" target="_blank">Telegram</a>
+            </div>
           </div>
         </article>
 
@@ -176,11 +178,64 @@
             <h3>BeastMine</h3>
             <p class="muted">Minecraft Server Web Page</p>
             <div class="tags"><span>Website</span><span>Game</span></div>
-            <div class="links"><a href="https://beastmine.fun/">Link</a></div>
+            <div class="links"><a href="https://beastmine.fun/" target="_blank">Link</a><a href="https://map.beastmine.fun/" target="_blank">Map</a></div>
           </div>
         </article>
 
         <!-- add as many cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="section achievements">
+    <div class="container">
+      <center><h2>Achievements</h2></center>
+      <p class="section-desc">Certificates, diplomas and recognition of my professional growth</p>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-content">
+            <h4>Web Development Certificate</h4>
+            <p class="achievement-issuer">Tech Academy</p>
+            <p class="achievement-date">2023</p>
+            <p class="achievement-desc">Advanced course in modern web development technologies</p>
+          </div>
+          <div class="achievement-badge">Certified</div>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">🎓</div>
+          <div class="achievement-content">
+            <h4>Python Programming</h4>
+            <p class="achievement-issuer">Code Institute</p>
+            <p class="achievement-date">2022</p>
+            <p class="achievement-desc">Professional certification in Python and Django development</p>
+          </div>
+          <div class="achievement-badge">Expert</div>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">⭐</div>
+          <div class="achievement-content">
+            <h4>Best Student Award</h4>
+            <p class="achievement-issuer">University</p>
+            <p class="achievement-date">2021</p>
+            <p class="achievement-desc">Recognition for outstanding academic performance</p>
+          </div>
+          <div class="achievement-badge">Award</div>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">🚀</div>
+          <div class="achievement-content">
+            <h4>Project Excellence</h4>
+            <p class="achievement-issuer">Tech Competition</p>
+            <p class="achievement-date">2023</p>
+            <p class="achievement-desc">First place in regional programming competition</p>
+          </div>
+          <div class="achievement-badge">Winner</div>
+        </div>
       </div>
     </div>
   </section>
@@ -192,9 +247,9 @@
       <p class="section-desc">Technologies and skills I'm planning to learn and master</p>
       <div class="future-grid">
         <div class="future-item">
-          <div class="future-icon">🚀</div>
-          <h4>PHP</h4>
-          <p>Language on which most websites work</p>
+          <div class="future-icon">🎮</div>
+          <h4>Game Dev</h4>
+          <p>I've loved playing games since I was a kid and have always wanted to make my own</p>
         </div>
         <div class="future-item">
           <div class="future-icon">⚡</div>
@@ -207,7 +262,7 @@
           <p>High-performance applications such as games, OS, browsers, as well as for system programming, scientific computing and even AI</p>
         </div>
         <div class="future-item">
-          <div class="future-icon">🐋</div>
+          <div class="future-icon">🚀</div>
           <h4>Java</h4>
           <p>From mobile applications for Android and server systems to web applications, desktop programs</p>
         </div>
@@ -247,8 +302,8 @@
             <textarea name="message" rows="6" required></textarea>
           </label>
           <div class="form-actions">
-            <button type="submit" href="#" class="btn-primary">Send</button>
-            <button type="reset" href="#" class="btn-ghost-2">Clear</button>
+            <a href="#" class="btn-primary" onclick="document.getElementById('contactForm').submit(); return false;">Send</a>
+            <a href="#" class="btn-ghost" onclick="document.getElementById('contactForm').reset(); return false;">Clear</a>
           </div>
         </form>
 
@@ -257,12 +312,13 @@
       <div class="contact-right">
         <div class="contact-card">
           <h3>Contacts</h3>
-          <p><strong>Email:</strong> jasurbek@email.com</p>
-          <p><strong>Location:</strong> City, Country</p>
-          <p><strong>Phone:</strong> +998 ...</p>
+          <p><strong>Email:</strong> zokirovjasurbek2008@gmail.com</p>
+          <p><strong>Location:</strong> Tashkent, Uzbekistan</p>
+          <p><strong>Phone:</strong> +998 95 009 87 38</p>
           <div class="social">
-            <a href="#">GitHub</a>
-            <a href="#">LinkedIn</a>
+            <a href="https://github.com/l1keafox4" target="_blank"><img src="assets/images/github_logo.png" alt="github_logo" srcset="" style="width: 35px; height: 32px;"></a>
+            <a href="https://www.linkedin.com/in/jasurbek-zokirov-945a5430b/" target="_blank"><img src="assets/images/linkedin_logo.png" alt="linkedin_logo" srcset="" style="width: 35px; height: 32px;"></a>
+            <a href="https://t.me/Jas_623009" target="_blank"><img src="assets/images/telegram_logo.png" alt="telegram_logo" srcset="" style="width: 35px; height: 32px;"></a>
           </div>
         </div>
       </div>

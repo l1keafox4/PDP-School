@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'BerlinSansFBDemi';
+    src: url('BRLNSDB.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input, select, textarea {
+    font-family: 'BerlinSansFBDemi', Arial, sans-serif !important;
+}
+
+.minecraft-font {
+    font-family: 'MinecraftTen', sans-serif !important;
+}
+
+/* Стили для устранения голубой линии между секциями */
+.hero-bg {
+    margin-bottom: -1px;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    background-color: transparent; /* Убираем черный фон */
+    margin-top: -1px;
+    padding-top: 48px; /* Увеличиваем отступ сверху для компенсации */
+}

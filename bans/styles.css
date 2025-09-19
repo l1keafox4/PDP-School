@@ -1,0 +1,148 @@
+/* 3D кнопки навигации */
+
+/* 3D слой для секций Staff modal */
+.staff-layer {
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  transform-style: preserve-3d;
+  transform: perspective(800px) translateZ(0);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.25);
+  background-color: #374151; /* gray-700 */
+  margin-bottom: 6px;
+}
+
+.staff-layer:hover {
+  transform: perspective(800px) translateZ(10px);
+}
+
+.staff-layer:active {
+  transform: perspective(800px) translateZ(2px);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.25);
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* 3D кнопки навигации */
+.nav-button-3d {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  transform-style: preserve-3d;
+  transform: perspective(800px) translateZ(0);
+  box-shadow: 0 4px 0 0 rgba(0,0,0,0.2);
+  margin-bottom: 4px;
+}
+
+.nav-button-3d:hover {
+  transform: perspective(800px) translateZ(10px);
+}
+
+.nav-button-3d:active {
+  transform: perspective(800px) translateZ(2px);
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* Анимации появления элементов */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.5s ease forwards;
+  opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+.delay-5 { animation-delay: 0.9s; }
+
+/* Стили для карточек с красивой пружинящей анимацией */
+@keyframes springIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(40px) scale(0.9); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(-10px) scale(1.02); 
+  }
+  70% { 
+    transform: translateY(5px) scale(0.98); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+/* Стили для Admin izoh на третьей строке с голубым фоном */
+.bg-blue-600, div[class*='admin-izoh'] {
+  display: block !important;
+  background-color: #2563eb !important;
+  color: white !important;
+  padding: 8px !important;
+  border-radius: 6px !important;
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+  order: 3 !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* Карточка бана */
+.card-appear > .relative {
+  padding: 12px; /* p-3 */
+  background-color: #1f2937; /* bg-gray-800 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+@media (max-width: 640px){
+  /* Упрощённая анимация для телефонов – простое появление */
+  .card-appear{animation: fadeIn 0.4s ease forwards; transform:none;}
+}
+
+@media (min-width: 768px){
+  .card-appear > .relative{ padding:16px; /* p-4 */ border-radius:0.75rem; /* rounded-xl */ }
+}
+
+.card-appear {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: springIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.card-appear.appear {
+  opacity: 1;
+  transform: translateY(0);
+}

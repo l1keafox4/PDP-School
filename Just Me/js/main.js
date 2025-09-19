@@ -151,3 +151,40 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNav(); // Initial call
   });
   
+  // Copy to clipboard function
+  function copyToClipboard(text, element) {
+    navigator.clipboard.writeText(text).then(function() {
+      // Show success feedback
+      const originalText = element.textContent;
+      element.textContent = 'Copied!';
+      element.style.color = '#10B981';
+      element.style.fontWeight = 'bold';
+      
+      // Reset after 2 seconds
+      setTimeout(() => {
+        element.textContent = originalText;
+        element.style.color = '';
+        element.style.fontWeight = '';
+      }, 2000);
+    }).catch(function(err) {
+      console.error('Failed to copy text: ', err);
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      // Show feedback
+      const originalText = element.textContent;
+      element.textContent = 'Copied!';
+      element.style.color = '#10B981';
+      
+      setTimeout(() => {
+        element.textContent = originalText;
+        element.style.color = '';
+      }, 2000);
+    });
+  }
+  

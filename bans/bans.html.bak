@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>BeastMine - Banlar</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#ffcc00", secondary: "#9333ea" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link href="berlin-font.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+      /* Анимация появления для proof modal */
+      @keyframes modalFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes modalContentIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      
+      .proof-modal-animate {
+        animation: modalFadeIn 0.3s ease-out forwards;
+      }
+      
+      .proof-modal-content-animate {
+        animation: modalContentIn 0.3s ease-out forwards;
+      }
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+      @font-face {
+      font-family: 'MinecraftTen';
+      src: url('https://db.onlinewebfonts.com/t/6ab539c6fc2b21ff0b149b3d06d7f97c.eot');
+      src: url('https://db.onlinewebfonts.com/t/6ab539c6fc2b21ff0b149b3d06d7f97c.woff2') format('woff2'),
+      url('https://db.onlinewebfonts.com/t/6ab539c6fc2b21ff0b149b3d06d7f97c.woff') format('woff'),
+      url('https://db.onlinewebfonts.com/t/6ab539c6fc2b21ff0b149b3d06d7f97c.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      }
+      
+      /* Анимация перелистывания */
+      @keyframes pageFlip {
+        0% { opacity: 0; transform: rotateY(-30deg) scale(0.9); }
+        100% { opacity: 1; transform: rotateY(0) scale(1); }
+      }
+      
+      .page-animation {
+        animation: pageFlip 0.5s ease-out forwards;
+        transform-origin: center left;
+        perspective: 1000px;
+      }
+      
+      /* Анимация для плавного появления элементов */
+      @keyframes smoothAppear {
+        0% { opacity: 0; transform: scale(0.8); }
+        70% { opacity: 0.7; transform: scale(1.05); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      
+      .smooth-appear {
+        animation: smoothAppear 0.8s ease-out forwards;
+        animation-fill-mode: both;
+      }
+      
+      /* Анимация для кнопок пагинации */
+      .pagination-button {
+        transition: all 0.3s ease;
+      }
+      
+      .pagination-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      
+      /* Добавляем шрифт Berlin Sans FB Demi */
+      @font-face {
+        font-family: 'Berlin Sans FB Demi';
+        src: url('/fonts/BRLNSDB.woff2') format('woff2');
+        font-weight: bold;
+        font-style: normal;
+      }
+      
+      /* Стили для ссылки-карточки Isbotlar */
+      .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      
+      .card-link:hover .card {
+        border-color: #ffcc00;
+        box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+      }
+      
+      .proof-preview {
+        overflow: hidden;
+        border-radius: 0.375rem;
+      }
+      
+      /* Применяем шрифт ко всем элементам */
+      body, div, p, span, h1, h2, h3, h4, h5, h6, a, button, input, select, textarea {
+        font-family: 'Berlin Sans FB Demi', Arial, sans-serif !important;
+      }
+      
+      /* Только для элементов с классом minecraft-font используем MinecraftTen */
+      .minecraft-font {
+        font-family: 'MinecraftTen', sans-serif !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      /* Фиксированный header */
+      .fixed-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      
+      /* Анимация для логотипа */
+      @keyframes floating {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(2deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+      
+      .logo-animate {
+        animation: floating 4s ease-in-out infinite;
+        transform-origin: center;
+      }
+      
+      /* 3D кнопки навигации */
+      .nav-button-3d {
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        transform-style: preserve-3d;
+        transform: perspective(800px) translateZ(0);
+        box-shadow: 0 4px 0 0 rgba(0,0,0,0.2);
+        margin-bottom: 4px;
+      }
+      
+      .nav-button-3d:hover {
+        transform: perspective(800px) translateZ(10px);
+      }
+      
+      .nav-button-3d:active {
+        transform: perspective(800px) translateZ(2px);
+        box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+      
+      /* Анимации появления - эффект жалюзи */
+      @keyframes blindsDown {
+        0% { 
+          opacity: 0; 
+          clip-path: inset(0 0 100% 0);
+          transform: translateY(-10px);
+        }
+        100% { 
+          opacity: 1; 
+          clip-path: inset(0 0 0 0);
+          transform: translateY(0);
+        }
+      }
+      
+      .card-appear {
+        animation: blindsDown 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        opacity: 0;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      
+      .card-appear.appear, .card-appear.card-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .delay-1 { animation-delay: 0.1s; }
+      .delay-2 { animation-delay: 0.3s; }
+      .delay-3 { animation-delay: 0.5s; }
+      
+      body {
+        font-family: 'Rubik', sans-serif;
+      }
+      
+      .hero-bg {
+        background: linear-gradient(135deg, #9333ea 0%, #6b21a8 100%);
+        position: relative;
+      }
+      
+      .hero-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 20px, transparent 20px, transparent 40px);
+        z-index: 0;
+      }
+      
+      input:focus {
+        outline: none;
+      }
+      
+      /* Стилизация анимированного появления */
+      .smooth-appear {
+        animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        transform-origin: center;
+        opacity: 0;
+      }
+      
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0;
+          transform: scale(0.8) translateY(30px);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.03) translateY(-5px);
+        }
+        70% {
+          transform: scale(0.97) translateY(3px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      
+      /* Стилизация кнопки прокрутки вверх */
+      #scrollToTopBtn {
+        opacity: 0.8;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+      }
+      
+      #scrollToTopBtn:hover {
+        opacity: 1;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+      }
+      
+      #scrollToTopBtn.rotate-180 {
+        transform: rotate(180deg) scale(0);
+      }
+      
+      /* Последовательная анимация для элементов списка */
+      .card-appear:nth-child(1) { animation-delay: 0.05s; }
+      .card-appear:nth-child(2) { animation-delay: 0.1s; }
+      .card-appear:nth-child(3) { animation-delay: 0.15s; }
+      .card-appear:nth-child(4) { animation-delay: 0.2s; }
+      .card-appear:nth-child(5) { animation-delay: 0.25s; }
+      .card-appear:nth-child(6) { animation-delay: 0.3s; }
+      .card-appear:nth-child(7) { animation-delay: 0.35s; }
+      .card-appear:nth-child(8) { animation-delay: 0.4s; }
+      .card-appear:nth-child(9) { animation-delay: 0.45s; }
+      .card-appear:nth-child(10) { animation-delay: 0.5s; }
+      
+      /* Стилизация центрирования модального окна */
+      .modal-inner {
+        margin: 0 auto;
+        max-width: 90%;
+        width: 700px;
+        position: relative;
+        transform: none !important;
+      }
+      
+      #proofModal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      #proofModal .flex {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      
+      /* Гарантируем, что модальное окно центрировано */
+      #proofModal.flex {
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      #proofModal .modal-inner {
+        transform: none !important;
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+      }
+      
+      /* Модальные окна должны быть полностью скрыты когда они не используются */
+      #proofModal.hidden {
+        display: none !important;
+        pointer-events: none !important;
+      }
+      
+      /* Правило для скрытия #rules-modal */
+      #rules-modal.modal-hidden {
+        display: none !important;
+        pointer-events: none !important;
+      }
+      
+      /* Исправляем #proofContentContainer если он существует */
+      #proofContentContainer {
+        display: none !important;
+        pointer-events: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+      
+      /* Анимация появления для proof modal */
+      @keyframes modalFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes modalContentIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      
+      /* Стили для модальных окон */
+      .modal {
+        animation: modalFadeIn 0.3s ease;
+      }
+      
+      .modal-inner {
+        animation: modalContentIn 0.3s ease;
+      }
+
+      /* Ограничение размера изображений в модальном окне */
+      .proof-image-container img {
+        max-height: 500px;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+      }
+      
+      /* Стили для модального окна доказательств */
+      #proofModal {
+        overflow-y: auto;
+        max-height: 100vh;
+      }
+      
+      #proofContent {
+        max-height: 80vh;
+        overflow-y: auto;
+        padding-bottom: 80px; /* Дополнительный отступ, чтобы кнопки не перекрывались */
+      }
+      
+      /* Общие стили сайта */
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #1a1a1a;
+        color: #fff;
+      }
+      
+      /* Стилизация анимаций */
+      @keyframes cardAppear {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .card-appear {
+        animation: cardReveal 0.95s linear forwards;
+        transform-origin: center center;
+        backface-visibility: hidden;
+        opacity: 0;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      
+      /* Стилизация карточек статусов */
+      .ban-status {
+        font-size: 0.75rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 0.25rem;
+        font-weight: 500;
+        color: white;
+      }
+      
+      .ban-status.red {
+        background-color: #ef4444;
+      }
+      
+      .ban-status.yellow {
+        background-color: #f59e0b;
+      }
+      
+      .ban-status.green {
+        background-color: #10b981;
+      }
+      
+      /* Стилизация причины бана */
+      .ban-reason {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        color: #9ca3af;
+        font-size: 0.875rem;
+      }
+      
+      /* Стилизация комментария администратора */
+      .admin-izoh {
+        display: inline-block;
+        background-color: #2563eb;
+        color: white;
+        padding: 0.15rem 0.5rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      }
+      
+      /* Стилизация информации о бане */
+      .ban-info {
+        margin-top: 0.5rem;
+      }
+      
+      .admin-name {
+        color: #f59e0b;
+      }
+      
+      /* Стилизация модального окна */
+      .modal-inner {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      
+      /* Стилизация кнопок */
+      .rounded-button {
+        border-radius: 0.5rem;
+      }
+      
+      .nav-button-3d {
+        box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.2);
+        transition: all 0.1s ease;
+      }
+      
+      .nav-button-3d:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Стилизация полноэкранного просмотра изображений */
+      .fullscreen-image-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .fullscreen-image {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+      
+      /* Стилизация скроллбара */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #1f2937;
+        border-radius: 8px;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #374151;
+        border-radius: 8px;
+        border: 2px solid #1f2937;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4b5563;
+      }
+      
+      .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: #374151 #1f2937;
+      }
+      
+      input:focus {
+        outline: none;
+      }
+      
+      /* Стилизация модального окна с правилами */
+      .modal-hidden {
+        transition: all 0.3s ease-in-out;
+      }
+      
+      /* Стили для правил внутри модального окна */
+      .rules-modal h3 {
+        color: #ffcc00;
+      }
+      
+      /* Основные стили */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #1a1a1a;
+        color: #fff;
+      }
+      
+      /* Эффект приближения курсора (анимация для соседних карточек) */
+      .card-container {
+        perspective: 1000px;
+      }
+      
+      /* Анимация исчезновения при наведении курсора */
+      @keyframes vanish {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8) translateY(10px);
+        }
+      }
+      
+      /* Плавная анимация при наведении - одновременный наклон и увеличение */
+      @keyframes cardBounce {
+        0% {
+          transform: translateY(0) scale(1) rotate(0deg);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          background-color: #1f2937;
+        }
+        100% {
+          transform: translateY(-15px) scale(1.04) rotate(1deg);
+          box-shadow: 0 15px 30px rgba(255, 165, 0, 0.5);
+          background-color: #263244;
+        }
+      }
+      
+      /* Плавная анимация при уходе курсора */
+      @keyframes cardDrop {
+        0% {
+          transform: translateY(-15px) scale(1.04) rotate(1deg);
+          box-shadow: 0 15px 30px rgba(255, 165, 0, 0.5);
+          background-color: #263244;
+        }
+        100% {
+          transform: translateY(0) scale(1) rotate(0deg);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          background-color: #1f2937;
+        }
+      }
+      
+      /* Стиль для карточек */
+      .card-appear {
+        transition: none;
+      }
+      
+      /* Основной контейнер для карточек */
+      .hover-effect {
+        transform-origin: center;
+        will-change: transform, box-shadow;
+        transform: translateZ(0); /* Для GPU-ускорения */
+        max-width: 100%;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      /* Стили при наведении */
+      .ban-card.hover-ready:hover {
+        animation: cardBounce 0.3s forwards;
+        border: 1px solid rgba(255, 165, 0, 0.5);
+        position: relative;
+        z-index: 10;
+        /* Ограничиваем трансформацию, чтобы не выходила за экран */
+        margin: 0 4px;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      
+      /* Добавляем градиентное свечение */
+      .ban-card.hover-ready:hover::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255, 165, 0, 0.1), transparent 30%, rgba(255, 165, 0, 0.1) 60%, transparent);
+        background-size: 200% 200%;
+        animation: gradientMove 2s infinite linear;
+        pointer-events: none;
+        z-index: -1;
+        border-radius: 0.5rem;
+      }
+      
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: 200% 200%;
+        }
+      }
+      
+      /* СУПЕР ПЛАВНАЯ анимация появления - без остановок и задержек */
+      @keyframes cardReveal {
+        0% { 
+          opacity: 0; 
+          transform: perspective(1200px) rotateX(20deg) rotateY(-5deg) translateY(-50px) scale(0.85);
+          box-shadow: 0 0 0 rgba(255, 140, 0, 0);
+          filter: brightness(0.6) contrast(0.8) blur(4px);
+        }
+        25% { 
+          opacity: 0.4; 
+          transform: perspective(1200px) rotateX(10deg) rotateY(-2deg) translateY(-30px) scale(0.9);
+          box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+          filter: brightness(0.9) contrast(0.9) blur(2px);
+        }
+        50% { 
+          opacity: 0.7; 
+          transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(-10px) scale(0.95);
+          box-shadow: 0 0 30px rgba(255, 140, 0, 0.5);
+          filter: brightness(1.3) contrast(1.1) blur(0);
+        }
+        75% {
+          opacity: 0.9;
+          transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(-5px) scale(0.98);
+          box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+          filter: brightness(1.1) contrast(1.05);
+        }
+        100% { 
+          opacity: 1; 
+          transform: perspective(1200px) rotateX(0) rotateY(0) translateY(0) scale(1);
+          box-shadow: 0 0 10px rgba(255, 140, 0, 0.1);
+          filter: brightness(1) contrast(1);
+        }
+      }
+      
+      /* Добавляем стили для карточек */
+      .card-appear {
+        animation: cardReveal 0.95s linear forwards;
+        transform-origin: center center;
+        backface-visibility: hidden;
+        opacity: 0;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      
+      /* Плавная анимация для модального окна Isbotlar - полностью непрерывная */
+      @keyframes proofModalReveal {
+        0% {
+          opacity: 0;
+          transform: perspective(1500px) rotateX(15deg) rotateY(-3deg) translateY(-40px) scale(0.9);
+          filter: brightness(0.6) contrast(0.8) blur(5px);
+          box-shadow: 0 0 0 rgba(255, 140, 0, 0);
+        }
+        33% {
+          opacity: 0.5;
+          transform: perspective(1500px) rotateX(5deg) rotateY(-1deg) translateY(-20px) scale(0.95);
+          filter: brightness(0.9) contrast(0.9) blur(2px);
+          box-shadow: 0 0 20px rgba(255, 140, 0, 0.3), inset 0 0 10px rgba(255, 140, 0, 0.2);
+        }
+        66% {
+          opacity: 0.8;
+          transform: perspective(1500px) rotateX(0deg) rotateY(0deg) translateY(-10px) scale(0.98);
+          filter: brightness(1.1) contrast(1.05) blur(0);
+          box-shadow: 0 0 35px rgba(255, 140, 0, 0.4), inset 0 0 15px rgba(255, 140, 0, 0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(1500px) rotateX(0) rotateY(0) translateY(0) scale(1);
+          filter: brightness(1) contrast(1);
+          box-shadow: 0 0 20px rgba(255, 140, 0, 0.3), inset 0 0 10px rgba(255, 140, 0, 0.1);
+        }
+      }
+      
+      /* Стили для модального окна Isbotlar */
+      .modal-inner {
+        transform-origin: center center;
+        backface-visibility: hidden;
+      }
+      
+      #proofModalContent {
+        animation: proofModalReveal 0.85s linear forwards;
+      }
+      
+      /* Стили для карточек */
+      .ban-card {
+        background-color: #1f2937;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        margin-bottom: 15px;
+        padding: 16px;
+        position: relative;
+        border: 1px solid #2d3748;
+        transition: all 0.3s ease-out;
+        will-change: transform, box-shadow;
+        cursor: default;
+      }
+      
+      /* Запрещаем любые взаимодействия во время анимации появления */
+      .ban-card.animating {
+        pointer-events: none !important;
+      }
+      
+      /* Эффект при наведении после завершения анимации */
+      .ban-card:not(.animating):hover {
+        transform: translateY(-15px) scale(1.04) rotate(1deg);
+        box-shadow: 0 15px 30px rgba(255, 165, 0, 0.5);
+        background-color: #263244;
+        transition: all 0.3s ease-out;
+      }
+      
+      /* Обеспечение правильного наследования стилей */
+      .ban-card.cursor-pointer {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-900 text-white min-h-screen font-normal overflow-x-hidden"
+  >
+    <header class="bg-gray-800 shadow-lg fixed-header">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="https://beastmine.fun" class="text-primary text-2xl font-bold minecraft-font mr-8 flex items-center">
+            <img src="logo.png" alt="BeastMine" class="w-8 h-8 object-contain mr-2 logo-animate">
+            BeastMine
+          </a>
+          <nav class="hidden md:flex space-x-6">
+            <a
+              href="https://beastmine.fun"
+              data-readdy="true"
+              class="text-white hover:text-primary transition nav-button-3d"
+              >Asosiy</a
+            >
+            <a href="javascript:void(0)" onclick="openRulesModal()" class="text-white hover:text-primary transition nav-button-3d"
+              >Qoidalar</a
+            >
+            <a href="#" class="text-primary transition nav-button-3d">Banlar</a>
+            <a href="https://t.me/BeastMineDonate" target="_blank" class="text-white hover:text-primary transition nav-button-3d"
+              >Donat</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a
+            href="/admin/login.php"
+            class="bg-primary text-gray-900 font-bold px-4 py-2 !rounded-button hover:bg-yellow-500 transition whitespace-nowrap"
+          >
+            Kirish
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row gap-4 mb-8">
+        <div class="flex-1">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="O'yinchi ismini kiriting..."
+              class="w-full bg-gray-800 text-white px-4 py-2 pl-10 rounded-lg focus:ring-2 focus:ring-primary border-none text-sm"
+            />
+            <i
+              class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+            ></i>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button id="ban-button"
+            class="flex-1 md:flex-none bg-primary text-gray-900 px-6 py-2 !rounded-button font-medium hover:bg-yellow-500 transition whitespace-nowrap flex items-center justify-center gap-2"
+          >
+            <i class="ri-close-circle-line"></i>
+            <span>Banlar</span>
+          </button>
+          <button id="mute-button"
+            class="flex-1 md:flex-none bg-gray-700 text-white px-6 py-2 !rounded-button font-medium hover:bg-gray-600 transition whitespace-nowrap flex items-center justify-center gap-2"
+          >
+            <i class="ri-volume-mute-line"></i>
+            <span>Mutelar</span>
+          </button>
+
+          <button id="kick-button"
+            class="flex-1 md:flex-none bg-gray-700 text-white px-6 py-2 !rounded-button font-medium hover:bg-gray-600 transition whitespace-nowrap flex items-center justify-center gap-2"
+          >
+            <i class="ri-door-closed-line"></i>
+            <span>Kicklar</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-4" id="results-container">
+        <!-- Данные будут загружены сюда -->
+      </div>
+
+      <!-- Индикатор загрузки для бесконечной прокрутки -->
+      <div id="infinite-scroll-trigger" class="flex justify-center py-8 opacity-0">
+        <i class="ri-loader-4-line animate-spin text-3xl text-primary"></i>
+      </div>
+    </main>
+
+    <div
+      id="proofModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-80 transition-opacity"
+    >
+      <div class="modal-inner max-w-4xl w-full bg-gray-900 rounded-lg shadow-xl transform transition-transform overflow-hidden">
+        <div id="proofContent" class="p-5 md:p-6 overflow-y-auto custom-scrollbar" style="max-height: calc(90vh - 70px);">
+          <!-- Контент будет загружен динамически -->
+        </div>
+        <div class="bg-gray-900 p-4 border-t border-gray-700">
+          <div class="flex justify-center space-x-4">
+            <button onclick="closeProofModal()" class="bg-gray-700 text-white px-4 py-2 rounded-button hover:bg-gray-600 transition nav-button-3d">Yopish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Текущие настройки
+      let currentPage = 1;
+      let currentLimit = 10; // Загружаем по 10 элементов
+      let currentSearch = '';
+      let isLoading = false;
+      let allItemsLoaded = false;
+      let currentLoadedIds = new Set(); // Для отслеживания уже загруженных элементов
+      let currentType = 'bans'; // По умолчанию показываем баны
+      
+      // Выбираем элементы DOM по ID (более надежный способ)
+      const banButton = document.getElementById('ban-button');
+      const muteButton = document.getElementById('mute-button');
+      const kickButton = document.getElementById('kick-button');
+      const resultsContainer = document.getElementById('results-container');
+      const infiniteScrollTrigger = document.getElementById('infinite-scroll-trigger');
+      const searchInput = document.querySelector('input[placeholder="O\'yinchi ismini kiriting..."]');
+      
+      // Настройка Intersection Observer для бесконечной прокрутки
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !isLoading && !allItemsLoaded) {
+          console.log('Триггер бесконечной прокрутки виден! Загрузка страницы ' + (currentPage + 1));
+          currentPage++;
+          loadData();
+        }
+      }, {
+        rootMargin: '150px', // Увеличиваем зону срабатывания
+        threshold: 0.1    // Срабатывает когда хотя бы 10% элемента видно
+      });
+      
+      // Регистрируем наблюдателя для триггера бесконечной прокрутки
+      observer.observe(infiniteScrollTrigger);
+      
+      // Настройка Intersection Observer для анимации появления элементов
+      function setupCardAnimations() {
+        // Создаем новый Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            // Когда элемент входит в область видимости
+            if (entry.isIntersecting) {
+              // Добавляем класс анимации
+              entry.target.classList.add('appear');
+              // Добавляем задержку для последовательной анимации
+              setTimeout(() => {
+                entry.target.style.transitionDelay = "0s";
+              }, 50);
+              // Прекращаем наблюдение после появления
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          root: null, // viewport
+          threshold: 0.1, // 10% элемента должно быть видимо
+          rootMargin: '0px' // без отступов
+        });
+
+        // Наблюдаем за всеми элементами с классом card-appear
+        const cards = document.querySelectorAll('.card-appear');
+        cards.forEach(card => {
+          // Устанавливаем разные задержки для плавной анимации
+          const index = Array.from(cards).indexOf(card);
+          card.style.transitionDelay = (index * 0.1) + "s"; 
+          observer.observe(card);
+        });
+
+        return observer;
+      }
+
+      // Глобальная переменная для хранения observer
+      let cardsObserver = null;
+      
+      // Кэш для хранения информации о наличии доказательств
+      let proofCache = {};
+
+      // Настройка Intersection Observer для анимации появления элементов
+      const appearanceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Добавляем класс с анимацией
+            entry.target.classList.add('smooth-appear');
+            // Добавляем небольшую случайную задержку для более естественного эффекта
+            // entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+            appearanceObserver.unobserve(entry.target); // Отключаем наблюдение после появления
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '30px',
+        threshold: 0.05 // Срабатывает раньше, чтобы анимация начиналась до полного появления элемента
+      });
+      
+      // Функция для добавления кнопки прокрутки вверх
+      function addScrollToTopButton() {
+        // Создаем кнопку
+        const scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.innerHTML = '<i class="ri-arrow-up-line"></i>';
+        scrollToTopBtn.id = 'scrollToTopBtn';
+        scrollToTopBtn.className = 'fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-primary text-gray-900 rounded-full w-12 h-12 flex items-center justify-center shadow-lg scale-0 transition-all duration-500 ease-in-out hover:bg-yellow-500 focus:outline-none';
+        document.body.appendChild(scrollToTopBtn);
+        
+        // Обработчик прокрутки страницы
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 400) { // Показываем кнопку после прокрутки на 400px
+            // Удаляем класс поворота, если он есть
+            scrollToTopBtn.classList.remove('rotate-180');
+            
+            // Показываем кнопку
+            if (scrollToTopBtn.classList.contains('scale-0')) {
+              scrollToTopBtn.classList.remove('scale-0');
+              scrollToTopBtn.classList.add('scale-100');
+            }
+          } else {
+            if (scrollToTopBtn.classList.contains('scale-100')) {
+              scrollToTopBtn.classList.remove('scale-100');
+              scrollToTopBtn.classList.add('scale-0');
+            }
+          }
+        });
+        
+        // Обработчик нажатия на кнопку
+        scrollToTopBtn.addEventListener('click', function() {
+          // Анимация исчезновения кнопки
+          this.classList.add('rotate-180');
+          this.classList.replace('scale-100', 'scale-0');
+          
+          // Плавная прокрутка вверх с эффектом разгона и плавным торможением
+          const startTime = performance.now();
+          const startPosition = window.pageYOffset;
+          const distance = startPosition;
+          const duration = 800; // Время анимации в миллисекундах
+          
+          // Функция для плавного ускорения и замедления
+          const easeInOutQuint = (t) => {
+            return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
+          };
+          
+          const scrollAnimation = (currentTime) => {
+            const elapsedTime = currentTime - startTime;
+            
+            // Вычисляем прогресс анимации (0 до 1)
+            const progress = Math.min(elapsedTime / duration, 1);
+            
+            // Применяем функцию смягчения (сначала медленно, потом быстрее, потом опять медленно)
+            const easedProgress = easeInOutQuint(progress);
+            
+            // Рассчитываем новую позицию прокрутки
+            const newPosition = startPosition - (distance * easedProgress);
+            
+            // Прокручиваем страницу
+            window.scrollTo(0, newPosition);
+            
+            // Продолжаем анимацию, если она еще не завершена
+            if (progress < 1) {
+              window.requestAnimationFrame(scrollAnimation);
+            }
+          };
+          
+          // Запускаем анимацию
+          window.requestAnimationFrame(scrollAnimation);
+          window.requestAnimationFrame(scrollToTop);
+        });
+      }
+      
+      // Инициализация при загрузке страницы
+      document.addEventListener('DOMContentLoaded', function() {
+        // Добавляем случайный параметр для предотвращения кеширования
+        window.nocache = new Date().getTime();
+        
+        // Устанавливаем активную кнопку 'bans' при загрузке
+        if (banButton) {
+          setActiveButton(banButton);
+        }
+        
+        // Добавляем кнопку прокрутки вверх
+        addScrollToTopButton();
+        
+        // Загрузка данных по умолчанию (баны)
+        loadData();
+
+        // Добавляем обработчики событий для каждой кнопки
+        if (banButton) {
+          banButton.addEventListener('click', () => {
+            setActiveButton(banButton);
+            currentType = 'bans';
+            resetDataAndLoad();
+          });
+        }
+        
+        if (kickButton) {
+          kickButton.addEventListener('click', () => {
+            setActiveButton(kickButton);
+            currentType = 'kicks';
+            resetDataAndLoad();
+          });
+        }
+        
+        if (muteButton) {
+          muteButton.addEventListener('click', () => {
+            setActiveButton(muteButton);
+            currentType = 'mutes';
+            resetDataAndLoad();
+          });
+        }
+
+        // Обработчик поиска с debounce
+        let searchTimeout;
+        searchInput.addEventListener('input', (e) => {
+          clearTimeout(searchTimeout);
+          
+          if (e.target.value.trim() === '') {
+            // Если поле очищено, сразу сбрасываем поиск
+            if (currentSearch !== '') {
+              currentSearch = '';
+              resetDataAndLoad();
+            }
+          } else {
+            // Иначе устанавливаем задержку перед запросом
+            searchTimeout = setTimeout(() => {
+              currentSearch = e.target.value.trim();
+              resetDataAndLoad();
+            }, 500); // Задержка в 500 мс
+          }
+        });
+        
+        // Добавляем обработчик для клавиши Enter (мгновенный поиск)
+        searchInput.addEventListener('keyup', (e) => {
+          if (e.key === 'Enter' && e.target.value.trim() !== currentSearch) {
+            clearTimeout(searchTimeout);
+            currentSearch = e.target.value.trim();
+            resetDataAndLoad();
+          }
+        });
+      });
+      
+      // Функция для сброса данных и загрузки новых
+      function resetDataAndLoad() {
+        currentPage = 1;
+        allItemsLoaded = false;
+        currentLoadedIds.clear();
+        resultsContainer.innerHTML = '';
+        console.log("Сброс и загрузка типа:", currentType);
+        loadData();
+      }
+      
+      // Функция для загрузки данных с API
+      function loadData() {
+        if (isLoading || allItemsLoaded) return;
+        
+        isLoading = true;
+        
+        // Показываем индикатор загрузки
+        infiniteScrollTrigger.classList.remove('opacity-0');
+        infiniteScrollTrigger.classList.add('opacity-100');
+        
+        // Добавляем отладочную информацию
+        console.log('Загрузка данных, страница: ' + currentPage + ', тип: ' + currentType);
+
+        // Запускаем таймер для обработки тайм-аута
+        const timeoutId = setTimeout(() => {
+          console.error('API request timed out');
+          isLoading = false;
+          infiniteScrollTrigger.classList.add('opacity-0');
+          infiniteScrollTrigger.classList.remove('opacity-100');
+          showError('Тайм-аут запроса API. Повторите попытку позже.');
+        }, 15000);
+        
+        const apiUrl = `api/${currentType}.php?page=${currentPage}&limit=${currentLimit}&search=${encodeURIComponent(currentSearch)}&nocache=${window.nocache}`;
+        console.log('Loading data from:', apiUrl);
+        
+        fetch(apiUrl)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('API response:', data);
+            
+            // Проверка на ошибки в ответе
+            if (data.error) {
+              throw new Error(data.error);
+            }
+            
+            // Определяем массив элементов в зависимости от типа
+            let itemsArray = [];
+            
+            if (currentType === 'bans') {
+              itemsArray = data.bans || [];
+              allItemsLoaded = itemsArray.length === 0 || currentPage >= (data.pagination?.total_pages || 1);
+              console.log('Загружено банов:', itemsArray.length, 'allItemsLoaded:', allItemsLoaded, 'текущая страница:', currentPage, 'всего страниц:', data.pagination?.total_pages || 1);
+            } else if (currentType === 'mutes') {
+              itemsArray = data.mutes || [];
+              allItemsLoaded = itemsArray.length === 0 || currentPage >= (data.pagination?.total_pages || 1);
+              console.log('Загружено мутов:', itemsArray.length, 'allItemsLoaded:', allItemsLoaded, 'текущая страница:', currentPage, 'всего страниц:', data.pagination?.total_pages || 1);
+            } else if (currentType === 'kicks') {
+              itemsArray = data.kicks || [];
+              allItemsLoaded = itemsArray.length === 0 || currentPage >= (data.pagination?.total_pages || 1);
+              console.log('Загружено киков:', itemsArray.length, 'allItemsLoaded:', allItemsLoaded, 'текущая страница:', currentPage, 'всего страниц:', data.pagination?.total_pages || 1);
+            }
+            
+            if (itemsArray.length === 0) {
+              if (currentPage === 1) {
+                // Если это первая страница и нет данных, показываем сообщение
+                resultsContainer.innerHTML = `<div class="text-center py-8 text-gray-400">Natijalar topilmadi</div>`;
+              }
+              
+              isLoading = false;
+              clearTimeout(timeoutId); // Очищаем таймаут
+              return;
+            }
+            
+            // Фильтруем новые элементы, чтобы избежать дубликатов
+            const newItems = itemsArray.filter(item => !currentLoadedIds.has(item.id));
+            
+            // Добавляем новые ID в отслеживаемый набор
+            newItems.forEach(item => currentLoadedIds.add(item.id));
+            
+            // Преобразуем данные LiteBans в подходящий формат
+            const transformedData = newItems.map(item => {
+              // Конвертация UNIX timestamp в читаемую дату
+              let dateFormatted = '';
+              try {
+                let timestamp = item.time;
+                
+                // Проверка длины таймстемпа для определения формата
+                if (timestamp && typeof timestamp === 'string') {
+                  timestamp = parseInt(timestamp);
+                }
+                
+                if (!isNaN(timestamp)) {
+                  // Если таймстемп в миллисекундах (13 знаков), не умножаем на 1000
+                  const date = new Date(String(timestamp).length >= 13 ? timestamp : timestamp * 1000);
+                  
+                  // Проверка на валидность даты
+                  if (date instanceof Date && !isNaN(date)) {
+                    dateFormatted = `${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()}`;
+                  } else {
+                    dateFormatted = 'Invalid date';
+                  }
+                } else {
+                  dateFormatted = 'Unknown timestamp';
+                }
+              } catch (e) {
+                console.error("Ошибка при обработке времени:", e, item);
+                dateFormatted = 'Unknown date';
+              }
+              
+              let expiresText = '';
+              if (item.until === 0 || item.until === null || item.until === undefined) {
+                // Для киков или постоянных банов/мутов
+                if (currentType === 'kicks') {
+                  expiresText = 'N/A';
+                } else {
+                  expiresText = 'Navqat';
+                }
+              } else {
+                try {
+                  let until = item.until;
+                  
+                  // Проверка типа данных
+                  if (until && typeof until === 'string') {
+                    until = parseInt(until);
+                  }
+                  
+                  if (!isNaN(until)) {
+                    // Если время в миллисекундах (13 знаков), не умножаем на 1000
+                    const untilDate = new Date(String(until).length >= 13 ? until : until * 1000);
+                    
+                    // Проверка на валидность даты
+                    if (untilDate instanceof Date && !isNaN(untilDate)) {
+                      expiresText = `${untilDate.getDate().toString().padStart(2, '0')}.${(untilDate.getMonth() + 1).toString().padStart(2, '0')}.${untilDate.getFullYear()}`;
+                    } else {
+                      expiresText = 'Invalid date';
+                    }
+                  } else {
+                    expiresText = 'Unknown';
+                  }
+                } catch (e) {
+                  console.error("Ошибка при обработке срока:", e, item);
+                  expiresText = 'Unknown';
+                }
+              }
+              
+              // Определяем имя админа в зависимости от типа наказания
+              let adminName = 'Console';
+              if (currentType === 'bans') {
+                adminName = item.banned_by_name || 'Console';
+              } else if (currentType === 'mutes') {
+                adminName = item.muted_by_name || 'Console';
+              } else if (currentType === 'kicks') {
+                adminName = item.kicked_by_name || 'Console';
+              } else if (currentType === 'warnings') {
+                adminName = item.warned_by_name || 'Console';
+              }
+              
+              // Определяем статус элемента
+              let status, statusClass;
+              if (currentType === 'kicks') {
+                status = 'Kick';
+                statusClass = 'yellow'; // Кики жёлтым цветом
+              } else {
+                status = item.active ? 'Faol' : 'Tugagan';
+                statusClass = item.active ? 'red' : 'green';
+              }
+              
+              return {
+                id: item.id,
+                username: item.player_name || 'Unknown Player',
+                reason: item.reason || 'No reason',
+                admin: adminName,
+                date: dateFormatted,
+                expires: expiresText,
+                status: status,
+                status_class: statusClass,
+                type: currentType.slice(0, -1), // Убираем "s" из названия типа
+                unban_info: item.unban_info || '', 
+                unmute_info: item.unmute_info || '', 
+                active: item.active,
+                has_proof: proofInfo && proofInfo[item.id] === true // Добавляем флаг наличия доказательств
+              };
+            });
+            
+                    
+                    // Проверка на валидность даты
+                    if (date instanceof Date && !isNaN(date)) {
+                      dateFormatted = `${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()}`;
+                    } else {
+                      dateFormatted = 'Invalid date';
+                    }
+                  } else {
+                    dateFormatted = 'Unknown timestamp';
+                  }
+                } catch (e) {
+                  console.error("Ошибка при обработке времени:", e, item);
+                  dateFormatted = 'Unknown date';
+                }
+                
+                let expiresText = '';
+                if (item.until === 0 || item.until === null || item.until === undefined) {
+                  // Для киков или постоянных банов/мутов
+                  if (currentType === 'kicks') {
+                    expiresText = 'N/A';
+                  } else {
+                    expiresText = 'Navqat';
+                  }
+                } else {
+                  try {
+                    let until = item.until;
+                    
+                    // Проверка типа данных
+                    if (until && typeof until === 'string') {
+                      until = parseInt(until);
+                    }
+                    
+                    if (!isNaN(until)) {
+                      // Если время в миллисекундах (13 знаков), не умножаем на 1000
+                      const untilDate = new Date(String(until).length >= 13 ? until : until * 1000);
+                      
+                      // Проверка на валидность даты
+                      if (untilDate instanceof Date && !isNaN(untilDate)) {
+                        expiresText = `${untilDate.getDate().toString().padStart(2, '0')}.${(untilDate.getMonth() + 1).toString().padStart(2, '0')}.${untilDate.getFullYear()}`;
+                      } else {
+                        expiresText = 'Invalid date';
+                      }
+                    } else {
+                      expiresText = 'Unknown';
+                    }
+                  } catch (e) {
+                    console.error("Ошибка при обработке срока:", e, item);
+                    expiresText = 'Unknown';
+                  }
+                }
+                
+                // Определяем имя админа в зависимости от типа наказания
+                let adminName = 'Console';
+                if (currentType === 'bans') {
+                  adminName = item.banned_by_name || 'Console';
+                } else if (currentType === 'mutes') {
+                  adminName = item.muted_by_name || 'Console';
+                } else if (currentType === 'kicks') {
+                  adminName = item.kicked_by_name || 'Console';
+                } else if (currentType === 'warnings') {
+                  adminName = item.warned_by_name || 'Console';
+                }
+                
+                // Определяем статус элемента
+                let status, statusClass;
+                if (currentType === 'kicks') {
+                  status = 'Kick';
+                  statusClass = 'yellow'; // Кики жёлтым цветом
+                } else {
+                  status = item.active ? 'Faol' : 'Tugagan';
+                  statusClass = item.active ? 'red' : 'green';
+                }
+                
+                // Проверяем, есть ли у данного бана/мьюта доказательства
+                // Временно добавим шанс 50/50 для демонстрации
+                const hasProof = Math.random() > 0.5; // Для случайного показа флага
+                
+                return {
+                  id: item.id,
+                  username: item.player_name || 'Unknown Player',
+                  reason: item.reason || 'No reason',
+                  admin: adminName,
+                  date: dateFormatted,
+                  expires: expiresText,
+                  status: status,
+                  status_class: statusClass,
+                  type: currentType.slice(0, -1), // Убираем "s" из названия типа
+                  unban_info: item.unban_info || '', 
+                  unmute_info: item.unmute_info || '', 
+                  active: item.active,
+                  has_proof: hasProof // Временно случайное значение
+                };
+              } catch (error) {
+                console.error('Error processing item:', error, item);
+                // Возвращаем минимальный объект, чтобы не сломать отображение
+                return {
+                  id: item.id || 0,
+                  username: 'Error loading data',
+                  reason: 'Error',
+                  admin: 'System',
+                  date: 'Unknown',
+                  expires: 'Unknown',
+                  status: 'Error',
+                  status_class: 'red',
+                  type: currentType.slice(0, -1),
+                  has_proof: false
+                };
+              }
+            });
+            
+            // Отображаем данные
+            displayData(transformedData);
+            
+            // Больше не нужно использовать Observer, так как мы используем CSS-анимацию с задержкой
+            
+            // Снимаем флаг загрузки
+            isLoading = false;
+            clearTimeout(timeoutId); // Очищаем таймаут
+            
+            // Скрываем индикатор загрузки, если все элементы загружены
+            if (allItemsLoaded) {
+              console.log('Все элементы загружены - скрываем индикатор');
+              infiniteScrollTrigger.classList.add('opacity-0');
+              infiniteScrollTrigger.classList.remove('opacity-100');
+            } else {
+              // Показываем индикатор, если есть еще страницы
+              console.log('Есть еще страницы - показываем индикатор загрузки');
+              infiniteScrollTrigger.classList.remove('opacity-0');
+              infiniteScrollTrigger.classList.add('opacity-100');
+              
+              // Проверяем видимость индикатора
+              // Если он виден и не загружаем данные в данный момент, запланируем загрузку следующей страницы
+              const triggerRect = infiniteScrollTrigger.getBoundingClientRect();
+              const isVisible = triggerRect.top < window.innerHeight && triggerRect.bottom >= 0;
+              
+              if (isVisible) {
+                console.log('Триггер виден - планируем загрузку следующей страницы ' + (currentPage + 1));
+                setTimeout(() => {
+                  if (!isLoading && !allItemsLoaded) {
+                    currentPage++;
+                    loadData();
+                  }
+                }, 500); // Уменьшаем задержку до 500мс для более быстрой загрузки
+              }
+            }
+          })
+          .catch(error => {
+            console.error('Ошибка:', error);
+            clearTimeout(timeoutId); // Очищаем таймаут
+            
+            if (error.name === 'AbortError') {
+              console.log('Запрос был отменен из-за таймаута');
+            }
+            
+            if (currentPage === 1) {
+              resultsContainer.innerHTML = `<div class="bg-gray-800 rounded-lg p-4 smooth-appear card-appear">
+                <p class="text-center text-red-400">Ошибка загрузки данных. Пожалуйста, попробуйте позже.</p>
+                <p class="text-center text-gray-400 text-sm mt-2">${error.message}</p>
+              </div>`;
+            }
+          });
+      }
+      
+      // Функция для отображения данных с анимацией
+      function displayData(data) {
+        // Выводим отладочную информацию о полученных данных
+        console.log('Полученные данные:', data);
+        
+        // Если загружаем первую страницу, очищаем контейнер
+        if (currentPage === 1) {
+          resultsContainer.innerHTML = '';
+        }
+        
+        // Если нет данных, показываем сообщение только при первой загрузке
+        if (data.length === 0 && currentPage === 1) {
+          resultsContainer.innerHTML = '<div class="bg-gray-800 rounded-lg p-4"><p class="text-center text-gray-400">Natijalar topilmadi</p></div>';
+          return;
+        }
+        
+        // Если загружаем первую страницу, очищаем контейнер
+        if (currentPage === 1) {
+          resultsContainer.innerHTML = '';
+        }
+        
+        // Если нет данных, показываем сообщение только при первой загрузке
+        if (data.length === 0 && currentPage === 1) {
+          resultsContainer.innerHTML = '<div class="bg-gray-800 rounded-lg p-4"><p class="text-center text-gray-400">Natijalar topilmadi</p></div>';
+          return;
+        }
+        
+        // Полностью переработанный механизм блокирования hover-анимации до окончания анимации появления
+        // Обрабатываем каждый результат
+        data.forEach((item, index) => {
+          // Выводим отладочную информацию по каждому элементу
+          console.log(`Элемент ${index}:`, item);
+          console.log(`Информация о разбане для ${item.id}:`, item.unban_info || item.unmute_info || 'нет информации');
+          
+          // Создаем новую карточку
+          const card = document.createElement('div');
+          card.className = 'ban-card';
+          
+          // Устанавливаем класс анимации для блокировки взаимодействий
+          card.classList.add('animating');
+          
+          // Расчет времени появления
+          const appearDelay = index * 70;
+          card.style.animationDelay = `${appearDelay}ms`;
+          
+          // Расчет ПОЛНОГО времени анимации (с учетом задержки)
+          const totalAnimTime = appearDelay + 950 + 100; // задержка + длительность + запас
+          
+          // Снимаем блокировку взаимодействий после завершения анимации
+          setTimeout(() => {
+            card.classList.remove('animating');
+          }, totalAnimTime);
+          
+          // Обработчик наведения с проверкой состояния анимации
+          card.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('animating')) {
+              this.classList.add('hover-effect');
+            }
+          });
+          
+          // Обработчик ухода курсора
+          card.addEventListener('mouseleave', function() {
+            if (this.classList.contains('hover-effect')) {
+              this.classList.remove('hover-effect');
+              this.classList.add('hover-exit');
+              
+              // Сброс состояния после анимации выхода
+              setTimeout(() => {
+                this.classList.remove('hover-exit');
+              }, 400);
+            }
+          });
+          
+          // Добавляем класс для анимации появления
+          card.classList.add('card-appear');
+          
+          // Добавляем функциональность клика для отображения доказательств
+          if (item.type === 'ban' || item.type === 'mute') {
+            card.classList.add('cursor-pointer');
+          }
+          
+          // Шаблон для отображения данных
+          card.innerHTML = `
+            <div class="relative">
+              <div class="flex justify-between">
+                <div>
+                  <!-- СТРОКА 1: Имя пользователя, ID и статус -->
+                  <div class="flex items-center gap-1">
+                    <span class="font-medium text-sm player-name">${item.username}</span>
+                    <span class="text-xs text-gray-400">#${item.id}</span>
+                    <span class="text-xs text-white ${item.status === 'Tugagan' ? 'bg-green-500' : 'bg-red-500'} px-1.5 py-0.5 rounded">${item.status}</span>
+                    ${item.has_proof ? `<span class="text-xs text-white bg-orange-500 px-1.5 py-0.5 rounded ml-1">Proof bor</span>` : ''}
+                  </div>
+                  
+                  <!-- СТРОКА 2: Причина бана -->
+                  <div class="text-gray-400 text-sm mt-1 reason">${item.reason ? item.reason : 'Sabab ko\'rsatilmagan'}</div>
+                  
+                  <!-- СТРОКА 3: Комментарий администратора с голубым фоном -->
+                  <div class="admin-feedback-container" style="margin-top: 8px;">
+                    ${item.admin_feedback ? `<div style="background-color: #2563eb; color: white; padding: 8px; border-radius: 6px;">[Admin izoh: ${item.admin_feedback}]</div>` : ''}
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="flex items-center justify-end mb-1">
+                    <svg class="w-4 h-4 text-gray-500 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-xs text-gray-400">Admin: <span class="text-yellow-400">${item.admin}</span></span>
+                  </div>
+                  <div class="flex items-center justify-end mb-1">
+                    <svg class="w-4 h-4 text-gray-500 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-xs text-gray-400">Sana: ${item.date}</span>
+                  </div>
+                  <div class="flex items-center justify-end mb-1">
+                    <svg class="w-4 h-4 text-gray-500 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-xs text-gray-400">Tugaydi: ${item.expires}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          resultsContainer.appendChild(card);
+          
+          // Добавляем функциональность клика для отображения доказательств
+          if (item.type === 'ban' || item.type === 'mute') {
+            card.onclick = function() {
+              showProof(item.type, item.id);
+            };
+          }
+        });
+        
+        // Больше не нужно использовать Observer, так как мы используем CSS-анимацию с задержкой
+        
+      }
+      
+      // Функция для плавного прокручивания вверх
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+      
+      // Функция для загрузки следующей страницы данных
+      function loadMoreData() {
+        if (isLoading || allItemsLoaded) return;
+        loadData();
+      }
+      
+      // Функция для установки активной кнопки
+      function setActiveButton(button) {
+        // Сбрасываем стили всех кнопок
+        [banButton, muteButton, kickButton].forEach(btn => {
+          if (btn) {
+            btn.classList.remove('bg-primary', 'text-gray-900');
+            btn.classList.add('bg-gray-700', 'text-white');
+          }
+        });
+        
+        // Устанавливаем стиль активной кнопки
+        button.classList.remove('bg-gray-700', 'text-white');
+        button.classList.add('bg-primary', 'text-gray-900');
+      }
+      
+      // Функция для отображения доказательств
+      function showProof(type, id) {
+        console.log(`Запрос доказательств для type=${type}, id=${id}`);
+        const proofModal = document.getElementById("proofModal");
+        const proofContent = document.getElementById("proofContent");
+        
+        // Показываем модальное окно с анимацией
+        proofModal.classList.remove("hidden");
+        proofModal.classList.add("flex");
+        proofModal.classList.add("proof-modal-animate");
+        
+        // Устанавливаем начальное состояние контента
+        const modalInner = proofModal.querySelector(".modal-inner");
+        modalInner.classList.add("proof-modal-content-animate");
+        
+        // Показываем индикатор загрузки
+        proofContent.innerHTML = `
+          <div class="flex justify-center items-center p-8">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        `;
+        
+        // Добавляем звуковой эффект открытия
+        const openSound = new Audio('sound/open.mp3');
+        openSound.volume = 0.5;
+        openSound.play().catch(e => console.log('Audio play failed:', e));
+        
+        // Получаем ник игрока из строки
+        let playerName = ""; 
+        if (type === "ban" || type === "mute" || type === "warn" || type === "kick") {
+          // Получаем имя игрока из таблицы на странице
+          const row = document.querySelector(`[data-id="${id}"]`);
+          if (row) {
+            const nameCell = row.querySelector(".player-name");
+            if (nameCell) {
+              playerName = nameCell.textContent.trim();
+            }
+          }
+        }
+        
+        // Загружаем доказательства из базы данных
+        const apiUrl = `api/proof.php?type=${type}&id=${id}&player=${encodeURIComponent(playerName)}`;
+        console.log('Запрос к API:', apiUrl);
+
+        fetch(apiUrl)
+          .then(response => {
+            console.log('Ответ API - статус:', response.status);
+            if (!response.ok) {
+              throw new Error('Ошибка сети: ' + response.status);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('API response:', data);
+            
+            if (data.proofs && data.proofs.length > 0) {
+              // Получаем информацию о наказании из первого доказательства
+              const punishment = data.proofs[0];
+              const playerUuid = punishment.player_uuid || '';
+              
+              // Получаем имя игрока так же, как в основном списке банов
+              let playerName = punishment.player_name || punishment.player_uuid || 'Unknown Player';
+                            
+              // Дополнительно очищаем имя от кодов форматирования Minecraft
+              if (playerName && typeof playerName === 'string') {
+                playerName = playerName.replace(/§[0-9a-fklmnor]/g, '');
+              }
+              
+              // Получаем фидбэк администратора
+              const adminFeedback = punishment.admin_feedback || '';
+              
+              // Получаем причину бана - используем предпочтительно поле reason, затем поле punishment_reason
+              const punishmentReason = punishment.reason || punishment.punishment_reason || 'Подозрение в использовании читов';
+              
+              // Получаем имя администратора
+              const adminName = punishment.admin_name || 'Console';
+              
+              // Формируем заголовок с информацией о наказании
+              let modalTitle = `<div class="text-center mb-4"><h2 class="text-xl font-bold text-primary">Isbotlar</h2></div>`;
+              
+              // Добавляем информацию о наказании, всегда показываем все поля
+              modalTitle += `<div class="bg-gray-700 rounded-lg p-3 mb-4">`;
+              // Добавляем поле с именем игрока
+              modalTitle += `<p class="text-gray-300"><span class="text-primary">O'yinchi:</span> ${playerName || 'Noma\'lum o\'yinchi'}</p>`;
+              // Всегда показываем информацию об админе и причине
+              modalTitle += `<p class="text-gray-300"><span class="text-primary">Admin:</span> ${adminName || 'Console'}</p>`;
+              modalTitle += `<p class="text-gray-300"><span class="text-primary">Sabab:</span> ${punishmentReason || 'Podzrzenie w użyciu cheatów'}</p>`;
+              // Добавляем поле с комментарием администратора
+              modalTitle += `</div>`;
+              
+              // Добавляем блок с общим feedback администратора, если он есть
+              if (adminFeedback && adminFeedback.trim() !== '') {
+                modalTitle += `<div class="mt-4 p-4 bg-gray-800 rounded-lg">
+                  <div class="font-semibold text-yellow-400 mb-2">Umumiy admin izohi:</div>
+                  <div class="text-white">${adminFeedback}</div>
+                </div>`;
+              }
+              
+              // Отображаем доказательства
+              let html = modalTitle;
+              html += '<div class="space-y-4">';
+              
+              // Обрабатываем каждое доказательство
+              data.proofs.forEach(proof => {
+                html += `<div class="bg-gray-800 rounded-lg p-4 mb-4 animate-fade-in">`;
+                
+                // Обрабатываем ссылку на файл
+                let fileUrl = proof.proof_url;
+                // Если ссылка начинается с '../', убираем это
+                if (fileUrl.startsWith('../')) {
+                  fileUrl = fileUrl.substring(3);
+                }
+                
+                // Отображаем изображение или видео с возможностью полноэкранного просмотра
+                if (proof.proof_type === 'image') {
+                  // Добавляем обертку с ссылкой для открытия изображения в новом окне
+                  html += `<div class="proof-image-container relative overflow-hidden rounded-lg mb-3 group cursor-pointer">
+                    <img src="${fileUrl}" alt="Доказательство" class="w-full rounded-lg transition-transform duration-300 hover:scale-105" style="max-height: 500px; object-fit: contain;">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      <div class="flex space-x-3">
+                        <a href="${fileUrl}" target="_blank" class="bg-black bg-opacity-70 hover:bg-opacity-100 text-white rounded-full p-2 transition-all duration-300" title="Открыть в новом окне">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 100-2H5z" />
+                          </svg>
+                        </a>
+                        <button onclick="viewFullscreen('${fileUrl}')" class="bg-black bg-opacity-70 hover:bg-opacity-100 text-white rounded-full p-2 transition-all duration-300" title="Полный экран">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 012 0v1.586l2.293-2.293a1 1 0 011.414-1.414L15.586 5H18a1 1 0 010 2h-1.586l-2.293-2.293a1 1 0 00-1.414-1.414l2.293 2.293V4z" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>`;
+                } else if (proof.proof_type === 'video') {
+                  // Добавляем кнопки для видео
+                  html += `<div class="proof-video-container relative mb-3">
+                    <video src="${fileUrl}" controls class="w-full rounded-lg"></video>
+                    <div class="mt-2 flex justify-end space-x-2">
+                      <a href="${fileUrl}" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                          <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 100-2H5z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>`;
+                }
+                
+                // Добавляем информацию о времени загрузки
+                html += `<div class="text-gray-400 text-sm mt-2">Yuklangan sana: ${proof.created_at}</div>`;
+                
+                // Добавляем комментарий администратора, если он есть
+                if (proof.admin_comment && proof.admin_comment.trim() !== '') {
+                  html += `<div class="mt-3 p-3 bg-gray-700 rounded-lg">
+                    <div class="text-xs text-gray-400 mb-1">Admin izohi:</div>
+                    <div class="text-white">${proof.admin_comment}</div>
+                  </div>`;
+                }
+                
+                html += '</div>';
+              });
+              
+              // Закрываем контейнер
+              html += '</div>';
+              
+              // Кнопка Yopish теперь добавляется в HTML структуре модального окна, а не через JavaScript
+              
+              // Отображаем результат в модальном окне
+              proofContent.innerHTML = html;
+            } else {
+              // Если доказательств нет
+              proofContent.innerHTML = `
+                <div class="text-center">
+                  <h3 class="text-2xl font-bold mb-4">
+                    Isbotlar
+                  </h3>
+                  <p class="text-gray-400 mb-6">Isbot hali qo'shilmadi</p>
+                </div>
+              `;
+            }
+          })
+          .catch(error => {
+            console.error('Ошибка:', error);
+              proofContent.innerHTML = `
+              <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">
+                  Isbotlar
+                </h3>
+                <p class="text-red-400 mb-6">Isbotlarni yuklashda xatolik yuz berdi.</p>
+              </div>
+            `;
+          });
+      }
+      
+      function closeProofModal() {
+        const proofModal = document.getElementById("proofModal");
+        
+        // Запускаем анимацию исчезновения
+        proofModal.classList.remove("proof-modal-animate");
+        proofModal.style.opacity = "0";
+        
+        // Устанавливаем начальное состояние контента
+        const modalInner = proofModal.querySelector(".modal-inner");
+        modalInner.classList.remove("proof-modal-content-animate");
+        modalInner.style.transform = "scale(0.8)";
+        
+        // После завершения анимации скрываем модальное окно
+        setTimeout(() => {
+          proofModal.classList.add("hidden");
+          proofModal.classList.remove("flex");
+          
+          // Закрываем полноэкранное модальное окно если оно открыто
+          const fullscreenModal = document.getElementById("fullscreenImageModal");
+          if (fullscreenModal) {
+            fullscreenModal.classList.add("hidden");
+          }
+        }, 300);
+      }
+      
+      // Функция для просмотра изображения в полноэкранном режиме
+      function viewFullscreen(imageUrl) {
+        // Предотвращаем всплытие клика
+        event.preventDefault();
+        event.stopPropagation();
+        
+        // Проверяем, есть ли уже модальное окно для полноэкранного просмотра
+        let fullscreenModal = document.getElementById("fullscreenImageModal");
+        
+        // Если нет, создаем его
+        if (!fullscreenModal) {
+          fullscreenModal = document.createElement("div");
+          fullscreenModal.id = "fullscreenImageModal";
+          fullscreenModal.className = "fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center cursor-zoom-out";
+          fullscreenModal.onclick = closeFullscreenImage;
+          
+          // Создаем содержимое модального окна
+          const content = document.createElement("div");
+          content.className = "relative max-w-7xl mx-auto";
+          
+          // Создаем кнопку закрытия
+          const closeButton = document.createElement("button");
+          closeButton.className = "absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none";
+          closeButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          `;
+          closeButton.onclick = function(e) {
+            e.stopPropagation();
+            closeFullscreenImage();
+          };
+          
+          // Создаем контейнер для изображения
+          const imageContainer = document.createElement("div");
+          imageContainer.id = "fullscreenImageContainer";
+          imageContainer.className = "p-4";
+          
+          // Добавляем элементы в DOM
+          content.appendChild(closeButton);
+          content.appendChild(imageContainer);
+          fullscreenModal.appendChild(content);
+          document.body.appendChild(fullscreenModal);
+        }
+        
+        // Обновляем содержимое модального окна
+        const imageContainer = document.getElementById("fullscreenImageContainer");
+        imageContainer.innerHTML = `<img src="${imageUrl}" alt="Изображение доказательства" class="max-w-full max-h-[80vh] mx-auto object-contain rounded">`;
+        
+        // Показываем модальное окно
+        fullscreenModal.classList.remove("hidden");
+        fullscreenModal.classList.add("flex");
+      }
+      
+      // Функция для закрытия полноэкранного изображения
+      function closeFullscreenImage() {
+        const fullscreenModal = document.getElementById("fullscreenImageModal");
+        if (fullscreenModal) {
+          fullscreenModal.classList.add("hidden");
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- Модальное окно с правилами -->
+<div id="rules-modal" class="fixed inset-0 bg-black bg-opacity-0 modal-hidden flex items-center justify-center z-50 transition-all duration-300 ease-in-out opacity-0 pointer-events-none">
+  <div class="bg-gray-800 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-all duration-300 ease-in-out shadow-2xl mx-4">
+    <div class="sticky top-0 bg-gray-800 p-6 border-b border-gray-700 flex justify-between items-center z-10">
+      <h2 class="text-2xl font-bold text-primary">✏️ MC.BEASTMINE.FUN SERVER QOIDALARI</h2>
+      <button onclick="closeRulesModal()" class="text-gray-400 hover:text-white">
+        <i class="ri-close-line text-2xl"></i>
+      </button>
+    </div>
+    <div class="p-6 space-y-6">
+      <!-- Правила сервера -->
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">1️⃣ Umumiy Qoidalar</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>1.2 Besabab mute – 1 kun ban ⛔️</li>
+          <li>1.3 Flood qilish – 10 daqiqa mute ⛔️</li>
+          <li>1.4 So'kinish – 30 daqiqa mute ⛔️</li>
+          <li>1.5 Ota-onadan ketish – 2 soat mute ⛔️</li>
+          <li>1.6 Shaxsiyatga tegish – 5 soat mute ⛔️</li>
+          <li>1.7 Chat spam qilish – 1 soat mute ⛔️</li>
+          <li>1.3 3+ – 1d ban ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">2️⃣ Chit va Firibgarlikka Qarshi Qoidalar</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>2.0 Chit ishlatish – 6 kun ban ⛔️</li>
+          <li>2.2 Ikkinchi marta chit ishlatish – 14 kun ban ⛔️</li>
+          <li>2.3 Adminlarga soxta donat cheki tashlash – umrbod ban ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">3️⃣ Moderator va O'yinchilarga Hurmat</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>3.1 Owner, moderator yoki helperni haqoratlash – 3 soat mute ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">4️⃣ Hisob va Xavfsizlik Qoidalari</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>4.1 Boshqa o'yinchi akkauntidan foydalanish – ban ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">5️⃣ O'yin Ichidagi Xatoliklar va Foydalanish</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>5.1 Baglardan foydalanish – vayp oxirigacha ban ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">6️⃣ Noto'g'ri Kontent</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>6.1 8+ nik ishlatish – ban ⛔️</li>
+          <li>6.2 Reklama qilish – umrbod ban ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">7️⃣ Xatolar va O'yinni Buzish</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>7.3 Bug'ni ommaga tarqatish – 12 kun ban ⛔️</li>
+          <li>7.4 Bug'ni yashirish va adminlarga bildirmaslik – ban ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-bold text-primary mb-4">8️⃣ Dyup (duping) va Resurslar</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>8.2 Dyup qilish – 10 kun ban ⛔️</li>
+          <li>8.3 Dyupni ommaga tarqatish – 15 kun ban ⛔️</li>
+        </ul>
+      </div>
+      
+      <div class="bg-gray-700 p-4 rounded-lg text-center">
+        <p class="text-lg font-bold text-primary">⛔ Ushbu qoidalarga amal qiling, aks holda jazolanasiz ⛔</p>
+      </div>
+    </div>
+    <div class="sticky bottom-0 bg-gray-800 p-6 border-t border-gray-700 flex justify-center">
+      <button onclick="closeRulesModal()" class="bg-primary text-gray-900 font-bold px-6 py-2 rounded-button hover:bg-yellow-500 transition nav-button-3d">Yopish</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Функции для модального окна с правилами
+function openRulesModal() {
+    const modal = document.getElementById('rules-modal');
+
+    // Плавно открываем модальное окно
+    modal.classList.remove('modal-hidden');
+    modal.classList.remove('opacity-0');
+    modal.classList.remove('pointer-events-none');
+    modal.classList.add('bg-opacity-50');
+    modal.classList.add('opacity-100');
+
+    // Анимируем содержимое модального окна
+    setTimeout(() => {
+        const modalContent = modal.querySelector('div');
+        modalContent.classList.add('scale-100');
+        modalContent.classList.remove('scale-95');
+    }, 50);
+
+    // Запрещаем прокрутку фона
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRulesModal() {
+    const modal = document.getElementById('rules-modal');
+    const modalContent = modal.querySelector('div');
+    
+    // Сначала уменьшаем содержимое
+    modalContent.classList.remove('scale-100');
+    modalContent.classList.add('scale-95');
+    
+    // Затем плавно скрываем весь модальный фон
+    setTimeout(() => {
+        modal.classList.remove('bg-opacity-50');
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        modal.classList.add('pointer-events-none');
+        modal.classList.add('modal-hidden');
+        
+        // Возвращаем прокрутку фона
+        document.body.style.overflow = '';
+    }, 200);
+}
+</script>
