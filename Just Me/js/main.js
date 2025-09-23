@@ -1,3 +1,7 @@
+// Hi, my name is Jasurbek, i am 17 years old and i am from Uzbekistan 
+// This html file contains the front-end code of my personal portfolio website. 
+// Also take a look to my github to find more projects :-) https://github.com/l1keafox4 
+
 // main.js — GSAP animations + small interactions
 document.addEventListener('DOMContentLoaded', () => {
     // refresh year

@@ -1,3 +1,8 @@
+/* Jasurbek's signature */
+/* Hi, my name is Jasurbek, i am 17 years old and i am from Uzbekistan 
+This css file contains the front-end code of my personal portfolio website. 
+Also take a look to my github to find more projects :-) https://github.com/l1keafox4 */
+
 :root{
     --bg:#f5f7fb;
     --card:#fff;
@@ -18,10 +23,11 @@
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     scroll-behavior: smooth; /* 🔥 Плавный переход */
+    position: relative;
   }
 
   section {
-    height: 125vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,16 +35,34 @@
     transition: background 0.8s ease-in-out;
   }
 
-  #about { background: linear-gradient(to right, #1e3c72, #2a5298); color: white; }
-  #skills { background: linear-gradient(to right, #ff6a00, #ee0979); color: white; }
-  #works { background: linear-gradient(to right, #00b09b, #96c93d); color: white; }
+  #about { 
+    background: 
+      linear-gradient(135deg, rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)),
+      url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') center/cover no-repeat;
+    color: white;
+    position: relative;
+  }
+  #skills { 
+    background: 
+      linear-gradient(135deg, rgba(255, 106, 0, 0.85), rgba(238, 9, 121, 0.85)),
+      url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') center/cover no-repeat;
+    color: white;
+    position: relative;
+  }
+  #works { 
+    background: 
+      linear-gradient(135deg, rgba(0, 176, 155, 0.85), rgba(150, 201, 61, 0.85)),
+      url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80') center/cover no-repeat;
+    color: white;
+    position: relative;
+  }
   #contact { background: linear-gradient(to right, #654ea3, #eaafc8); color: white; }
 
   *{
     box-sizing:border-box;
     text-decoration: none;
   }
-  html,body{height:115.9%}
+  html,body{height:103.5%}
   html {
     scroll-behavior: smooth;
   }
@@ -62,7 +86,7 @@
   .site-header{
     position:sticky;
     top:0;
-    z-index:60;
+    z-index:100;
     backdrop-filter: blur(6px);
     background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
     border-bottom: 1px solid rgba(15,23,42,0.04);
@@ -255,10 +279,33 @@
   }
   
   .accent {
-    background: linear-gradient(90deg, var(--accent4), var(--accent2), var(--accent3));
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fd79a8, #6c5ce7, #a29bfe);
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: gradientShiftText 3s ease-in-out infinite, bounceText 2s ease-in-out infinite;
+    font-weight: 900;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    display: inline-block;
+  }
+  
+  @keyframes gradientShiftText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes bounceText {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      transform: translateY(-10px) scale(1.05);
+    }
+    60% {
+      transform: translateY(-5px) scale(1.02);
+    }
   }
   
   .hero-lead {
@@ -424,6 +471,19 @@
     font-weight: 700;
     text-align: center;
     padding: 8px 12px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
   }
   
   .profile-info h3 {
@@ -502,6 +562,15 @@
     color: black;
   }
   
+  /* About section cards */
+  #about .card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(30, 60, 114, 0.4));
+    border: none;
+    color: #1e3c72;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 12px 40px rgba(30, 60, 114, 0.3);
+  }
+  
   /* skills grid */
   .skills-grid {
     display: grid;
@@ -516,6 +585,19 @@
     border-radius: 12px;
     box-shadow: var(--shadow);
     color: black;
+  }
+  
+  /* Skills section cards */
+  #skills .skill {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 106, 0, 0.4));
+    border: none;
+    color: #333;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 12px 40px rgba(255, 106, 0, 0.3);
+  }
+  
+  #skills .skill h4 {
+    color: #333;
   }
   
   .skill h4 {
@@ -543,6 +625,25 @@
     min-height: 320px;
   }
   
+  /* Projects section cards */
+  #works .work-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(0, 176, 155, 0.4));
+    border: none;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 12px 40px rgba(0, 176, 155, 0.3);
+  }
+  
+  #works .work-card .meta h3 {
+    color: #00b09b !important;
+  }
+  
+  #works .work-card .tags span {
+    background: rgba(255, 255, 255, 0.4);
+    color: #00b09b;
+    border: none;
+    backdrop-filter: blur(10px);
+  }
+  
   .work-card .preview {
     width: 100%;
     height: 180px;
@@ -568,6 +669,8 @@
     gap: 12px;
   }
   
+  /* Jasurbek's signature */
+
   .work-card .tags {
     display: flex;
     gap: 8px;
@@ -629,10 +732,35 @@
   .contact-card {
     background: var(--card);
     padding: 20px;
-    width: 62.5vh;
+    max-width: 400px;
+    width: 100%;
     border-radius: 12px;
     box-shadow: var(--shadow);
     color: black;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Contact section cards */
+  #contact .contact-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(101, 78, 163, 0.4));
+    border: none;
+    color: #654ea3;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 12px 40px rgba(101, 78, 163, 0.3);
+  }
+  
+  .contact-card p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 8px 0;
+    line-height: 1.4;
+  }
+  
+  .contact-card h3 {
+    margin: 0 0 16px 0;
+    font-size: 1.2rem;
   }
   
   form label {
@@ -673,23 +801,34 @@
   
   /* small screens */
   @media (max-width: 940px) {
+    section {
+      min-height: auto;
+      padding: 40px 0;
+    }
+    
     .hero-grid {
       grid-template-columns: 1fr;
     }
-  
+
     .right {
       order: -1;
+      width: 100%;
     }
-  
+    
+    .split {
+      flex-direction: column;
+      gap: 30px;
+    }
+
     .skills-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-  
+
     .future-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
-  
+
     .works-grid {
       grid-template-columns: 1fr;
       gap: 20px;
@@ -703,21 +842,46 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
-  
+
     .contact-wrap {
       grid-template-columns: 1fr;
     }
-  
+    
+    .contact-card {
+      max-width: none;
+      width: 100%;
+    }
+
     .nav {
       display: none;
     }
-  
+
     .nav-toggle {
       display: block;
     }
   }
   
   @media (max-width: 640px) {
+    section {
+      font-size: 1.2em;
+      padding: 30px 0;
+    }
+    
+    .container {
+      width: 95%;
+      padding: 0 10px;
+    }
+    
+    .skill-cards {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    
+    .card {
+      padding: 12px;
+      font-size: 14px;
+    }
+    
     .skills-grid {
       grid-template-columns: 1fr;
     }
@@ -752,6 +916,22 @@
     
     .achievement-icon {
       font-size: 2.5rem;
+    }
+    
+    .contact-card {
+      padding: 15px;
+      margin: 0;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .form-actions a {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
     }
   }
   
@@ -1137,3 +1317,198 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
+/* Floating circles animation - DISABLED */
+/*
+.floating-circles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(0.5px);
+}
+
+.circle:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  left: 10%;
+  top: calc(100vh + 60px);
+  animation: ricochetFromHeader 12s linear infinite;
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(45deg, #45b7d1, #96ceb4);
+  left: -60px;
+  top: 40%;
+  animation: bounceOffProfileCard 10s linear infinite;
+  animation-delay: 1.5s;
+}
+
+.circle:nth-child(3) {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(45deg, #ffeaa7, #fd79a8);
+  left: calc(100vw + 60px);
+  top: 60%;
+  animation: ricochetFromSkills 13s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.circle:nth-child(4) {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+  left: 50%;
+  top: -60px;
+  animation: bounceProjectCards 14s linear infinite;
+  animation-delay: 2.5s;
+}
+
+.circle:nth-child(5) {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(45deg, #00b894, #55a3ff);
+  left: calc(100vw + 60px);
+  top: calc(100vh + 60px);
+  animation: ricochetFromContact 12.5s linear infinite;
+  animation-delay: 1s;
+}
+
+.circle:nth-child(6) {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(45deg, #e17055, #fdcb6e);
+  left: -60px;
+  top: -60px;
+  animation: pinballAchievements 15s linear infinite;
+  animation-delay: 3.5s;
+}
+
+.circle:nth-child(7) {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(45deg, #81ecec, #74b9ff);
+  left: 80%;
+  top: calc(100vh + 60px);
+  animation: ricochetFromNav 11s linear infinite;
+  animation-delay: 2s;
+}
+
+.circle:nth-child(8) {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(45deg, #fd79a8, #e84393);
+  left: -60px;
+  top: 25%;
+  animation: bounceOffText 13.5s linear infinite;
+  animation-delay: 0.75s;
+}
+
+.circle:nth-child(9) {
+  width: 33px;
+  height: 33px;
+  background: linear-gradient(45deg, #a29bfe, #6c5ce7);
+  left: 30%;
+  top: calc(100vh + 60px);
+  animation: edgeRicochet 9.5s linear infinite;
+  animation-delay: 3s;
+}
+
+.circle:nth-child(10) {
+  width: 41px;
+  height: 41px;
+  background: linear-gradient(45deg, #55a3ff, #74b9ff);
+  left: calc(100vw + 60px);
+  top: 10%;
+  animation: multiElementRicochet 16s linear infinite;
+  animation-delay: 4s;
+}
+*/
+
+/* Ricochet animations - DISABLED */
+/*
+@keyframes ricochetFromHeader {
+  0% {
+    transform: translateY(calc(100vh + 60px)) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    transform: translateY(60vh) translateX(20px) rotate(90deg);
+    opacity: 0.3;
+  }
+  30% {
+    transform: translateY(8vh) translateX(-40px) rotate(180deg);
+    opacity: 0.3;
+  }
+  45% {
+    transform: translateY(25vh) translateX(80px) rotate(270deg);
+    opacity: 0.3;
+  }
+  65% {
+    transform: translateY(45vh) translateX(-30px) rotate(360deg);
+    opacity: 0.3;
+  }
+  80% {
+    transform: translateY(20vh) translateX(60px) rotate(450deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-60px) translateX(0px) rotate(540deg);
+    opacity: 0;
+  }
+}
+*/
+
+/*
+@keyframes bounceOffProfileCard {
+  0% {
+    transform: translateX(-60px) translateY(0px) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(30vw) translateY(-30px) rotate(80deg);
+    opacity: 0.3;
+  }
+  35% {
+    transform: translateX(65vw) translateY(20px) rotate(160deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(40vw) translateY(-80px) rotate(240deg);
+    opacity: 0.3;
+  }
+  65% {
+    transform: translateX(20vw) translateY(40px) rotate(320deg);
+    opacity: 0.3;
+  }
+  80% {
+    transform: translateX(10vw) translateY(-50px) rotate(400deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(-60px) translateY(0px) rotate(480deg);
+    opacity: 0;
+  }
+}
+*/
+
+/* 
+=== FLOATING CIRCLES ANIMATIONS (DISABLED) ===
+All ricochet animations have been commented out.
+To re-enable: uncomment the HTML in index.html and the CSS blocks above.
+*/
+
+/* Jasurbek's signature */
