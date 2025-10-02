@@ -1,4 +1,4 @@
-<!-- Hi, my name is Jasurbek, i am 17 years old and i am from Uzbekistan 
+<!-- Hi, my name is Jasurbek, now i am 17 years old and i am from Uzbekistan 
 This html file contains the front-end code of my personal portfolio website. 
 Also take a look to my github to find more projects :-) https://github.com/l1keafox4 -->
 
@@ -64,20 +64,12 @@ Also take a look to my github to find more projects :-) https://github.com/l1kea
 
   <section id="hero" class="hero">
     <div class="container hero-grid">
-      <div class="hero-left">
+      <div class="hero-left animated-text">
         <h1 class="hero-title">Hi there <span class="accent">I'm Jasurbek</span></h1>
-        <p class="hero-lead">It is my own lending web page, and there you can find my projects, skills and contacts.</p>
-        <div class="hero-cta">
-          <a href="#works" class="btn-primary">See projects</a>
-          <a href="#contact" class="btn-ghost">Contact me</a>
-        </div>
-        <div class="meta">
-          <div><strong>Experience:</strong> 3+ years</div>
-          <div><strong>Focus:</strong> Web, frontend, backend</div>
-        </div>
+        <p class="hero-lead">It is my own lending web page, and there you can find some information about me, my projects, skills and contacts.</p>
       </div>
 
-      <div class="hero-right">
+      <div class="hero-right animated-card">
         <!-- stylish profile card placeholder — заменишь фото -->
         <div class="profile-card">
           <div class="profile-visual" aria-hidden="true">
@@ -93,37 +85,101 @@ Also take a look to my github to find more projects :-) https://github.com/l1kea
           </div>
         </div>
       </div>
+      
+      <!-- Появляющийся блок с заявкой -->
+      <div class="hero-contact-form">
+        <div class="contact-form-content">
+          <h3>Оставить заявку</h3>
+          <p>Связаться со мной:</p>
+          <a href="tel:+998950098738" class="phone-number">+998 95 009 87 38</a>
+          <button class="contact-btn">Написать сообщение</button>
+        </div>
+      </div>
     </div>
     <div class="hero-decor" aria-hidden="true"></div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section">
+    <!-- Декоративные элементы -->
+    <div class="section-decorations">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+      <div class="floating-shape shape-4"></div>
+      <div class="floating-shape shape-5"></div>
+      <div class="code-lines"></div>
+      <div class="binary-rain">
+        <span>01010101</span>
+        <span>11001100</span>
+        <span>00110011</span>
+        <span>10101010</span>
+      </div>
+      <div class="dev-icons">
+        <div class="dev-icon">💻</div>
+        <div class="dev-icon">🚀</div>
+        <div class="dev-icon">⚡</div>
+      </div>
+    </div>
+    
     <div class="container">
       <div class="split">
         <div class="left">
           <h2>About Me</h2>
-          <p>Brief overview of experience and specialization. I position myself as a web developer, engineer, and designer. I focus on creating efficient and user-friendly solutions.</p>
+          <p>I’m a 17-year-old student from Uzbekistan, passionate about web and game development, with a strong interest in AI. I am currently studying at PDP School, one of the best IT school in Uzbekistan. I am a quick learner and I am always looking for new challenges to improve my skills.</p>
+          <br>
           <ul class="bullets">
-            <li>Creating fast SPAs and convenient interfaces</li>
-            <li>Working with Django + REST API</li>
+            <li>Creating mini Web Sites</li>
+            <li>Working with Python + Django</li>
             <li>Experience in performance optimization</li>
           </ul>
         </div>
         <div class="right">
           <div class="skill-cards">
-            <div class="card">Design systems</div>
-            <div class="card">Performance</div>
-            <div class="card">Accessibility</div>
-            <div class="card">Testing</div>
+            <div class="card">Creativity</div>
+            <div class="card">Team working</div>
+            <div class="card">Quick learner</div>
+            <div class="card">Ambivert</div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  
+  <!-- Плавный переход -->
+  <div class="section-transition transition-1"></div>
 
   <!-- SKILLS -->
   <section id="skills" class="section alt">
+    <!-- Декоративные элементы -->
+    <div class="section-decorations skills-decoration">
+      <div class="tech-icons">
+        <div class="tech-icon">{ }</div>
+        <div class="tech-icon">&lt;/&gt;</div>
+        <div class="tech-icon">λ</div>
+        <div class="tech-icon">♥</div>
+        <div class="tech-icon">🔥</div>
+        <div class="tech-icon">✨</div>
+        <div class="tech-icon">🎨</div>
+        <div class="tech-icon">⚙️</div>
+      </div>
+      <div class="skills-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+      <div class="skill-waves">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+      </div>
+    </div>
+    
     <div class="container">
       <center><h2>Skills</h2></center>
       <div class="skills-grid">
@@ -137,7 +193,7 @@ Also take a look to my github to find more projects :-) https://github.com/l1kea
         </div>
         <div class="skill">
           <h4>Tools</h4>
-          <p>Git, Docker, VScode, PyCharm</p>
+          <p>Git, Docker, VSCode, PyCharm</p>
         </div>
         <div class="skill">
           <h4>Design</h4>
@@ -146,61 +202,154 @@ Also take a look to my github to find more projects :-) https://github.com/l1kea
       </div>
     </div>
   </section>
+  
+  <!-- Плавный переход -->
+  <div class="section-transition transition-2"></div>
 
   <!-- WORKS -->
   <section id="works" class="section">
+    <!-- Декоративные элементы -->
+    <div class="section-decorations works-decoration">
+      <div class="project-orbits">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+        <div class="orbit orbit-4"></div>
+      </div>
+      <div class="project-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="project-lines">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </div>
+      <div class="project-glow">
+        <div class="glow-spot glow-1"></div>
+        <div class="glow-spot glow-2"></div>
+        <div class="glow-spot glow-3"></div>
+      </div>
+    </div>
+    
     <div class="container">
       <center><h2>Projects</h2></center>
-      <div class="works-grid">
-        <!-- project card template — replace with your own -->
-        <article class="work-card">
-          <div class="preview"><img src="assets/logo.png" alt=""></div>
-          <div class="meta">
-            <h3>Lending Web Site Portfolio</h3>
-            <p class="muted">This is my personal portfolio website</p>
-            <div class="tags"><span>HTML/CSS/JS</span><span>PHP</span></div>
-            <div class="links"><a href="http://127.0.0.1:5500/Just%20Me/index.html">Link</a></div>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="preview"><img src="assets/images/github-logo-vector.png" alt=""></div>
-          <div class="meta">
-            <h3>Git Hub</h3>
-            <p class="muted">View my github profile for full info</p>
-            <div class="tags"><span>GitHub</span></div>
-            <div class="links"><a href="https://github.com/l1keafox4" target="_blank">GitHub</a></div>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="preview"><img src="assets/images/BeastMine.png" alt=""></div>
-          <div class="meta">
-            <h3>BeastMine.fun</h3>
-            <p class="muted">This Minecraft server is in the Top 3 in Uzbekistan.  Recommended version to play: 1.16.x-1.20.x</p>
-            <div class="tags"><span>Server</span><span>Game</span></div>
-            <div class="links">
-              <a href="#" class="copy-link" onclick="copyToClipboard('mc.beastmine.fun', this); return false;" title="Click to copy server address">
-                IP: mc.beastmine.fun
-              </a><a href="https://t.me/BeastMineChannel" target="_blank">Telegram</a>
+      
+      <!-- 3D Carousel Container -->
+      <div class="carousel-container">
+        <div class="carousel-3d" id="projectCarousel">
+          <!-- Project Card 1 -->
+          <div class="carousel-item active">
+            <div class="work-card-3d">
+              <div class="preview"><img src="assets/logo.png" alt=""></div>
+              <div class="meta">
+                <h3>Lending Web Site Portfolio</h3>
+                <p class="muted">This is my personal portfolio website</p>
+                <div class="tags"><span>HTML/CSS/JS</span><span>PHP</span></div>
+                <div class="links"><a href="http://127.0.0.1:5500/Just%20Me/index.html">Link</a></div>
+              </div>
             </div>
           </div>
-        </article>
 
-        <article class="work-card">
-          <div class="preview"><img src="assets/images/BeastMine.png" alt=""></div>
-          <div class="meta">
-            <h3>BeastMine</h3>
-            <p class="muted">Minecraft Server Web Page</p>
-            <div class="tags"><span>Website</span><span>Game</span></div>
-            <div class="links"><a href="https://beastmine.fun/" target="_blank">Link</a><a href="https://map.beastmine.fun/" target="_blank">Map</a></div>
+          <!-- Project Card 2 -->
+          <div class="carousel-item">
+            <div class="work-card-3d">
+              <div class="preview"><img src="assets/images/github_logo.png" alt=""></div>
+              <div class="meta">
+                <h3>Git Hub</h3>
+                <p class="muted">View my github profile for full info</p>
+                <div class="tags"><span>GitHub</span></div>
+                <div class="links"><a href="https://github.com/l1keafox4" target="_blank">GitHub</a></div>
+              </div>
+            </div>
           </div>
-        </article>
 
-        <!-- add as many cards as needed -->
+          <!-- Project Card 3 -->
+          <div class="carousel-item">
+            <div class="work-card-3d">
+              <div class="preview"><img src="assets/images/BeastMine.png" alt=""></div>
+              <div class="meta">
+                <h3>BeastMine.fun</h3>
+                <p class="muted">This Minecraft server is in the Top 3 in Uzbekistan. Recommended version to play: 1.16.x-1.20.x</p>
+                <div class="tags"><span>Server</span><span>Game</span></div>
+                <div class="links">
+                  <a href="#" class="copy-link" onclick="copyToClipboard('mc.beastmine.fun', this); return false;" title="Click to copy server address">
+                    IP: mc.beastmine.fun
+                  </a><a href="https://t.me/BeastMineChannel" target="_blank">Telegram</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 4 -->
+          <div class="carousel-item">
+            <div class="work-card-3d">
+              <div class="preview"><img src="assets/images/BeastMine.png" alt=""></div>
+              <div class="meta">
+                <h3>BeastMine</h3>
+                <p class="muted">Minecraft Server Web Page</p>
+                <div class="tags"><span>Website</span><span>Game</span></div>
+                <div class="links"><a href="https://beastmine.fun/" target="_blank">Link</a><a href="https://map.beastmine.fun/" target="_blank">Map</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 5 - дополнительный проект -->
+          <div class="carousel-item">
+            <div class="work-card-3d">
+              <div class="preview"><img src="assets/logo.png" alt=""></div>
+              <div class="meta">
+                <h3>Python/Django mini projects</h3>
+                <p class="muted">Mini projects using python and django, you can find in my github</p>
+                <div class="tags"><span>Python</span><span>Django</span></div>
+                <div class="links"><a href="https://github.com/l1keafox4" target="_blank">GitHub</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 6 - еще один -->
+          <div class="carousel-item">
+            <div class="work-card-3d">
+              <div class="preview"><img src="assets/logo.png" alt=""></div>
+              <div class="meta">
+                <h3>Future Project</h3>
+                <p class="muted">After learning game development, i want to create my own game</p>
+                <div class="tags"><span>Game</span></div>
+                <div class="links"><a href="#">In Progress</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Carousel Navigation -->
+        <div class="carousel-nav">
+          <button class="nav-btn prev-btn" onclick="prevProject()">‹</button>
+          <button class="nav-btn next-btn" onclick="nextProject()">›</button>
+        </div>
+        
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+          <span class="indicator active" onclick="goToProject(0)"></span>
+          <span class="indicator" onclick="goToProject(1)"></span>
+          <span class="indicator" onclick="goToProject(2)"></span>
+          <span class="indicator" onclick="goToProject(3)"></span>
+          <span class="indicator" onclick="goToProject(4)"></span>
+          <span class="indicator" onclick="goToProject(5)"></span>
+        </div>
       </div>
     </div>
   </section>
+  
+  <!-- Плавный переход -->
+  <div class="section-transition transition-3"></div>
 
   <!-- ACHIEVEMENTS -->
   <section id="achievements" class="section achievements">
@@ -254,6 +403,9 @@ Also take a look to my github to find more projects :-) https://github.com/l1kea
       </div>
     </div>
   </section>
+  
+  <!-- Плавный переход -->
+  <div class="section-transition transition-4"></div>
 
   <!-- IN FUTURE -->
   <section id="future" class="section">
@@ -294,6 +446,9 @@ Also take a look to my github to find more projects :-) https://github.com/l1kea
       </div>
     </div>
   </section>
+  
+  <!-- Плавный переход -->
+  <div class="section-transition transition-5"></div>
 
   <!-- CONTACT -->
   <section id="contact" class="section alt">

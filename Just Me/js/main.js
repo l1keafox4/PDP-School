@@ -3,9 +3,117 @@
 // Also take a look to my github to find more projects :-) https://github.com/l1keafox4 
 
 // main.js — GSAP animations + small interactions
+
+// 3D CAROUSEL FUNCTIONALITY
+let currentProject = 0;
+let projectInterval;
+const totalProjects = 6;
+
+function initProjectCarousel() {
+    // Initialize rotation
+    currentRotation = 0;
+    
+    // Start auto-rotation
+    startAutoRotation();
+    
+    // Pause on hover
+    const carousel = document.querySelector('.carousel-container');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAutoRotation);
+        carousel.addEventListener('mouseleave', startAutoRotation);
+    }
+}
+
+function startAutoRotation() {
+    projectInterval = setInterval(() => {
+        nextProject();
+    }, 3000); // Every 3 seconds
+}
+
+function stopAutoRotation() {
+    if (projectInterval) {
+        clearInterval(projectInterval);
+    }
+}
+
+let currentRotation = 0;
+
+function updateCarousel() {
+    const carousel = document.querySelector('.carousel-3d');
+    const items = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    if (!carousel) return;
+    
+    // Calculate target rotation angle (60 degrees per item for 6 items)
+    const targetRotation = -currentProject * 60;
+    
+    // Find the shortest rotation path
+    let rotationDiff = targetRotation - currentRotation;
+    
+    // Normalize the difference to be within -180 to 180 degrees
+    while (rotationDiff > 180) rotationDiff -= 360;
+    while (rotationDiff < -180) rotationDiff += 360;
+    
+    // Update current rotation
+    currentRotation += rotationDiff;
+    
+    carousel.style.transform = `rotateY(${currentRotation}deg)`;
+    
+    // Update active states
+    items.forEach((item, index) => {
+        item.classList.toggle('active', index === currentProject);
+    });
+    
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentProject);
+    });
+}
+
+function nextProject() {
+    currentProject = (currentProject + 1) % totalProjects;
+    updateCarousel();
+}
+
+function prevProject() {
+    currentProject = (currentProject - 1 + totalProjects) % totalProjects;
+    updateCarousel();
+}
+
+function goToProject(index) {
+    if (index >= 0 && index < totalProjects) {
+        currentProject = index;
+        updateCarousel();
+        
+        // Restart auto-rotation
+        stopAutoRotation();
+        setTimeout(startAutoRotation, 1000);
+    }
+}
+
+// Make functions global for onclick handlers
+window.nextProject = nextProject;
+window.prevProject = prevProject;
+window.goToProject = goToProject;
+
 document.addEventListener('DOMContentLoaded', () => {
     // refresh year
     const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    
+    // Hero contact form interaction
+    const contactBtn = document.querySelector('.contact-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', () => {
+            // Можно добавить модальное окно или переход к секции контактов
+            const contactSection = document.querySelector('#contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+    
+    // 3D Carousel initialization
+    initProjectCarousel();
     
     // Smooth scrolling for navigation links
     function smoothScroll() {
