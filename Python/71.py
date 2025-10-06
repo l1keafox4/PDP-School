@@ -11,7 +11,7 @@ import os
 logging.basicConfig(level=logging.INFO)
 
 
-bot = Bot(token="6652182496:AAGx3FTlkqe0YZrUVtaTmdCt2g0JMdmortg")
+bot = Bot(token="")
 dp = Dispatcher(bot)
 dp.middleware.setup(LoggingMiddleware())
 
