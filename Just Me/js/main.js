@@ -7,6 +7,9 @@
 // 3D CAROUSEL FUNCTIONALITY
 let currentProject = 0;
 let projectInterval;
+let cooldownTimeout;
+let currentRotation = 0;
+let isInCooldown = false;
 const totalProjects = 6;
 
 function initProjectCarousel() {
@@ -25,9 +28,15 @@ function initProjectCarousel() {
 }
 
 function startAutoRotation() {
+    if (isInCooldown) {
+        console.log('Auto rotation blocked - in cooldown');
+        return;
+    }
     projectInterval = setInterval(() => {
-        nextProject();
+        currentProject = (currentProject + 1) % totalProjects;
+        updateCarousel();
     }, 3000); // Every 3 seconds
+    console.log('Auto rotation started');
 }
 
 function stopAutoRotation() {
@@ -35,8 +44,6 @@ function stopAutoRotation() {
         clearInterval(projectInterval);
     }
 }
-
-let currentRotation = 0;
 
 function updateCarousel() {
     const carousel = document.querySelector('.carousel-3d');
@@ -80,21 +87,93 @@ function prevProject() {
     updateCarousel();
 }
 
+// Navigation with cooldown
+function nextProjectWithCooldown() {
+    console.log('Next button clicked!');
+    // Stop auto-rotation
+    stopAutoRotation();
+    
+    // Set cooldown flag
+    isInCooldown = true;
+    
+    // Clear existing cooldown
+    if (cooldownTimeout) {
+        clearTimeout(cooldownTimeout);
+    }
+    
+    // Move to next project directly
+    currentProject = (currentProject + 1) % totalProjects;
+    console.log('Moving to project:', currentProject);
+    updateCarousel();
+    
+    // Start cooldown (5 seconds)
+    cooldownTimeout = setTimeout(() => {
+        console.log('Cooldown finished, restarting auto rotation');
+        isInCooldown = false;
+        startAutoRotation();
+    }, 5000);
+}
+
+function prevProjectWithCooldown() {
+    console.log('Prev button clicked!');
+    // Stop auto-rotation
+    stopAutoRotation();
+    
+    // Set cooldown flag
+    isInCooldown = true;
+    
+    // Clear existing cooldown
+    if (cooldownTimeout) {
+        clearTimeout(cooldownTimeout);
+    }
+    
+    // Move to previous project directly
+    currentProject = (currentProject - 1 + totalProjects) % totalProjects;
+    console.log('Moving to project:', currentProject);
+    updateCarousel();
+    
+    // Start cooldown (5 seconds)
+    cooldownTimeout = setTimeout(() => {
+        console.log('Cooldown finished, restarting auto rotation');
+        isInCooldown = false;
+        startAutoRotation();
+    }, 5000);
+}
+
 function goToProject(index) {
     if (index >= 0 && index < totalProjects) {
+        console.log('Indicator clicked for project:', index);
+        // Stop auto-rotation
+        stopAutoRotation();
+        
+        // Set cooldown flag
+        isInCooldown = true;
+        
+        // Clear existing cooldown
+        if (cooldownTimeout) {
+            clearTimeout(cooldownTimeout);
+        }
+        
         currentProject = index;
         updateCarousel();
         
-        // Restart auto-rotation
-        stopAutoRotation();
-        setTimeout(startAutoRotation, 1000);
+        // Start cooldown (5 seconds)
+        cooldownTimeout = setTimeout(() => {
+            console.log('Cooldown finished, restarting auto rotation');
+            isInCooldown = false;
+            startAutoRotation();
+        }, 5000);
     }
 }
 
 // Make functions global for onclick handlers
-window.nextProject = nextProject;
-window.prevProject = prevProject;
+window.nextProject = nextProjectWithCooldown;
+window.prevProject = prevProjectWithCooldown;
 window.goToProject = goToProject;
+
+// Also keep the original functions for internal use
+window.nextProjectOriginal = nextProject;
+window.prevProjectOriginal = prevProject;
 
 document.addEventListener('DOMContentLoaded', () => {
     // refresh year
@@ -138,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Close mobile menu if open
                     const navToggle = document.querySelector('.nav-toggle');
                     const navMenu = document.querySelector('.nav-menu');
-                    if (navToggle && navMenu) {
+                    if (navToggle && navMenu && navToggle.getAttribute('aria-expanded') === 'true') {
                         navToggle.setAttribute('aria-expanded', 'false');
                         navMenu.style.display = 'none';
                     }
@@ -153,13 +232,42 @@ document.addEventListener('DOMContentLoaded', () => {
     // simple nav toggle for small screens
     const toggle = document.querySelector('.nav-toggle');
     if (toggle) {
-      const nav = document.querySelector('.nav');
       const navMenu = document.querySelector('.nav-menu');
-      toggle.addEventListener('click', () => {
+      
+      function closeMenu() {
+        toggle.setAttribute('aria-expanded', 'false');
+        if (navMenu) navMenu.style.display = 'none';
+      }
+      
+      function openMenu() {
+        toggle.setAttribute('aria-expanded', 'true');
+        if (navMenu) navMenu.style.display = 'flex';
+      }
+      
+      // Toggle menu on button click
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        if (nav) nav.style.display = expanded ? 'none' : 'flex';
-        if (navMenu) navMenu.style.display = expanded ? 'none' : 'flex';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded && !navMenu.contains(e.target) && !toggle.contains(e.target)) {
+          closeMenu();
+        }
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+        }
       });
     }
   
@@ -263,13 +371,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNav(); // Initial call
   });
   
-  // Copy to clipboard function
   function copyToClipboard(text, element) {
     navigator.clipboard.writeText(text).then(function() {
-      // Show success feedback
+
       const originalText = element.textContent;
       element.textContent = 'Copied!';
-      element.style.color = '#10B981';
+      element.style.color = 'white';
       element.style.fontWeight = 'bold';
       
       // Reset after 2 seconds
@@ -291,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show feedback
       const originalText = element.textContent;
       element.textContent = 'Copied!';
-      element.style.color = '#10B981';
+      element.style.color = 'white';
       
       setTimeout(() => {
         element.textContent = originalText;
